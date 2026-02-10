@@ -54,6 +54,10 @@ const Hero = () => {
             />
           </div>
 
+
+
+
+
           {/* Details */}
           <div className="space-y-2 md:space-y-4 xl:space-y-3 pt-4 md:pt-2 xl:pt-6 animate-fade-in-up delay-100">
             <p className="text-xl md:text-3xl   lg:text-4xl xl:text-3xl text-[#ff0000] font-bold tracking-wide font-['PPMori'] px-2 mb-4 md:mb-6 mt-2 md:mt-4">
@@ -77,11 +81,12 @@ const Hero = () => {
               Register here
             </p>
 
-            {/* <div className="">
-              <button className="w-40 md:w-48 h-10 md:h-11 rounded-[10px] transition-all duration-300 hover:bg-white cursor-pointer flex items-center justify-center text-white overflow-hidden p-0">
-                <img src="/assets/_Colored.png" alt="DEVFOLIO LOGO" className="w-full h-full object-cover" />
-              </button>
-            </div> */}
+            <div className="">
+              <a href="https://devfolio.co" className="w-40 md:w-60 h-10 md:h-12 rounded-[10px] transition-all duration-300 cursor-pointer flex items-center justify-center text-white overflow-hidden p-0">
+                <img src="/assets/Devfolio.png" alt="DEVFOLIO LOGO" className="w-full h-full object-cover" />
+              </a>
+            </div>
+
             <div
               className="apply-button"
               data-hackathon-slug="nmithacks2026"
