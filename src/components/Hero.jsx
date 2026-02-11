@@ -82,7 +82,7 @@ const Hero = () => {
             </p>
             <div
               className="apply-button"
-              data-hackathon-slug="nmithacks2026"
+              data-hackathon-slug="nmithacks26"
               data-button-theme="dark-inverted"
               style={{ height: "44px", width: "312px" }}
             ></div>
