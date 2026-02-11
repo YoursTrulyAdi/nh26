@@ -18,7 +18,7 @@ const sponsorsData = {
   gold: Array(2).fill({ title: 'Coming Soon!' }),
   silver: Array(4).fill({ title: 'Coming Soon!' }),
   community: [
-    { title: 'Devfolio', image: '/assets/Devfolio.png', link: 'https://devfolio.co/', alt: 'DEVFOLIO LOGO' },
+    { title: 'Devfolio', image: '/assets/devfolio.png', link: 'https://devfolio.co/', alt: 'DEVFOLIO LOGO' },
     { title: 'Coming Soon!' }
   ]
 };
