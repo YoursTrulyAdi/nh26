@@ -5,22 +5,22 @@ import { CldImage } from 'next-cloudinary';
 import React from 'react';
 import Navbar from './Navbar';
 
-// import { useEffect } from "react";
-
-// useEffect(() => {
-//   const script = document.createElement("script");
-//   script.src = "https://apply.devfolio.co/v2/sdk.js";
-//   script.async = true;
-//   script.defer = true;
-//   document.body.appendChild(script);
-
-//   return () => {
-//     document.body.removeChild(script);
-//   };
-// }, []);
+import { useEffect } from "react";
 
 
 const Hero = () => {
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://apply.devfolio.co/v2/sdk.js";
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
   return (
     <div className="min-h-screen w-full text-white flex flex-col items-center justify-center relative p-4 md:p-8 overflow-hidden">
       <div className="absolute inset-0 w-full h-full z-0">
@@ -80,13 +80,6 @@ const Hero = () => {
             <p className="text-[#f17575ff] text-xs md:text-xl xl:text-xl font-bold mb-2 tracking-wide font-['PPMori']">
               Register here
             </p>
-
-            <div className="">
-              <a href="https://devfolio.co" className="w-40 md:w-60 h-10 md:h-12 rounded-[10px] transition-all duration-300 cursor-pointer flex items-center justify-center text-white overflow-hidden p-0">
-                <img src="/assets/Devfolio.png" alt="DEVFOLIO LOGO" className="w-full h-full object-cover" />
-              </a>
-            </div>
-
             <div
               className="apply-button"
               data-hackathon-slug="nmithacks2026"

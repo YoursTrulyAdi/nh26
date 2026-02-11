@@ -78,6 +78,7 @@ const Home = () => {
       <section id="contact">
         <ContactUs />
       </section>
+    <script defer async src="https://apply.devfolio.co/v2/sdk.js"></script>
     </main>
   )
 }

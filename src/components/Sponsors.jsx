@@ -756,12 +756,20 @@ const Sponsors = ({
                         <div className="card__content flex flex-col items-center justify-center relative text-white h-full z-10 p-4 text-center w-full">
                           {item.image ? (
                             <div className="relative w-full h-full flex items-center justify-center p-4">
-                              <Image
-                                src={item.image}
-                                alt={item.alt || item.title}
-                                fill
-                                className="object-contain p-4"
-                              />
+                                {item.title === "Devfolio" ? (
+                                  <img
+                                    src="/assets/devfolio.png"
+                                    alt="DEVFOLIO LOGO"
+                                    className="object-contain p-4"
+                                  />
+                                ) : (
+                                  <Image
+                                    src={item.image}
+                                    alt={item.alt || item.title}
+                                    fill
+                                    className="object-contain p-4"
+                                  />
+                                )}
                             </div>
                           ) : (
                             <h3 className={`font-bold text-lg md:text-xl text-white/90 ${textAutoHide ? 'text-clamp-2' : ''}`}>
