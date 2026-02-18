@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ScrollFix from "@/components/ScrollFix";
+import SmoothScroll from "@/components/SmoothScroll";
 import Script from "next/script";
 
 const geistSans = Geist({
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}
       >
+        <SmoothScroll />
         <ScrollFix />
         {children}
         <Script
