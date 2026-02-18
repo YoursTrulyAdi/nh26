@@ -153,15 +153,18 @@ const InfiniteSlider = () => {
     setActiveCard(null);
   };
 
-  // Lock body scroll when modal is open
+  // Lock body scroll and Lenis when modal is open
   React.useEffect(() => {
     if (selectedImage) {
       document.body.style.overflow = 'hidden';
+      if (window.lenis) window.lenis.stop();
     } else {
       document.body.style.overflow = 'unset';
+      if (window.lenis) window.lenis.start();
     }
     return () => {
       document.body.style.overflow = 'unset';
+      if (window.lenis) window.lenis.start();
     };
   }, [selectedImage]);
 

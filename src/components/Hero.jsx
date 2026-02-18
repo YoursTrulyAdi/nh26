@@ -77,9 +77,6 @@ const Hero = () => {
 
           {/* CTA Button */}
           <div className="pt-4 md:pt-0 xl:pt-0 animate-fade-in-up delay-300 flex flex-col items-center">
-            <p className="text-[#f17575ff] text-xs md:text-xl xl:text-xl font-bold mb-2 tracking-wide font-['PPMori']">
-              Register here
-            </p>
             <div
               className="apply-button"
               data-hackathon-slug="nmithacks26"

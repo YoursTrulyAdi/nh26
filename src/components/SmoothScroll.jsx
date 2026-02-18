@@ -22,6 +22,8 @@ const SmoothScroll = () => {
       touchMultiplier: 2,
     });
 
+    window.lenis = lenis;
+
     // 2. Connect Lenis to ScrollTrigger
     lenis.on('scroll', ScrollTrigger.update);
 
