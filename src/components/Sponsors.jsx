@@ -18,7 +18,7 @@ const sponsorsData = {
   gold: Array(2).fill({ title: 'Coming Soon!' }),
   silver: Array(4).fill({ title: 'Coming Soon!' }),
   community: [
-    { title: 'Devfolio', image: '/assets/devfolio.png', link: 'https://devfolio.co/', alt: 'DEVFOLIO LOGO' },
+    { title: 'Devfolio', image: '/assets/Devfolio.png', link: 'https://devfolio.co/', alt: 'DEVFOLIO LOGO' },
     { title: 'Coming Soon!' }
   ]
 };
@@ -758,9 +758,9 @@ const Sponsors = ({
                             <div className="relative w-full h-full flex items-center justify-center p-4">
                                 {item.title === "Devfolio" ? (
                                   <img
-                                    src="/assets/devfolio.png"
+                                    src="/assets/Devfolio.png"
                                     alt="DEVFOLIO LOGO"
-                                    className="object-contain p-4"
+                                    className="object-contain"
                                   />
                                 ) : (
                                   <Image
