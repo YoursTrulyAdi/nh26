@@ -73,11 +73,13 @@ const Faqs = () => {
 
     return (
         <div className="w-full py-20 px-4 md:px-10 bg-[#010524ff]">
-            <h2 className="text-3xl md:text-5xl font-bold text-center text-[#f17575ff] mb-12 font-['PPMori']">
-                <span className="relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-[#f17575ff] after:transition-all after:duration-300 hover:after:w-full">
-                    Frequently Asked Questions
-                </span>
-            </h2>
+            <div className="reveal">
+                <h2 className="text-3xl md:text-5xl font-bold text-center text-[#f17575ff] mb-12 font-['PPMori']">
+                    <span className="relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-[#f17575ff] after:transition-all after:duration-300 hover:after:w-full">
+                        Frequently Asked Questions
+                    </span>
+                </h2>
+            </div>
             <div className="flex flex-col w-full">
                 <AnimatePresence initial={false}>
                     {displayedFaqs.map((faq, index) => (
@@ -125,7 +127,7 @@ const Faqs = () => {
             </div>
 
             {!showAll ? (
-                <div className="flex justify-center mt-4">
+                <div className="flex justify-center mt-4 reveal">
                     <button
                         onClick={() => setShowAll(true)}
                         className="px-8 py-1 bg-white text-black rounded-full font-bold text-lg hover:bg-neutral-200 cursor-pointer transition-colors"
@@ -134,7 +136,7 @@ const Faqs = () => {
                     </button>
                 </div>
             ) : (
-                <div className="flex justify-center mt-4">
+                <div className="flex justify-center mt-4 reveal">
                     <button
                         onClick={() => setShowAll(false)}
                         className="px-8 py-1 bg-white text-black rounded-full font-bold text-lg hover:bg-neutral-200 cursor-pointer transition-colors"

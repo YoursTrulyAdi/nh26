@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ScrollFix from "@/components/ScrollFix";
 import SmoothScroll from "@/components/SmoothScroll";
+import GSAPReveal from "@/components/GSAPReveal";
 import Script from "next/script";
 
 const geistSans = Geist({
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
       >
         <SmoothScroll />
         <ScrollFix />
+        <GSAPReveal />
         {children}
         <Script
           src="https://apply.devfolio.co/v2/sdk.js"

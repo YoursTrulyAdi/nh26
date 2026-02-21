@@ -136,6 +136,7 @@ html {
   /* Removed scroll-behavior: smooth to prevent jumping to top on refresh. */
   scroll-padding-top: 100px;
 }
+
 @keyframes scrollLeft {
   0% {
     transform: translateX(0);
@@ -154,4 +155,23 @@ html {
   100% {
     transform: translateX(0);
   }
+}
+
+/* Reveal Animations Initial State */
+.reveal {
+  opacity: 0;
+  visibility: hidden;
+  will-change: transform, opacity, visibility;
+}
+
+/* Optional: Individual reveal items in a container */
+.reveal-item {
+  opacity: 0;
+  visibility: hidden;
+  will-change: transform, opacity, visibility;
+}
+
+/* Ensure no layout shift, but hide elements initially */
+[data-gsap-reveal="hidden"] {
+  visibility: hidden;
 }
