@@ -373,7 +373,7 @@ const StatCard = ({ icon, number, label }) => {
 
   return (
     <div
-      className="flex-1 lg:mr-5 border-2 border-[#FF0000] rounded-3xl p-6 text-left bg-[#02093D] backdrop-blur-sm hover:shadow-[0_0_20px_rgba(255,0,0,0.5)] transition-all duration-300"
+      className="flex-1 lg:mr-5 border-2 border-[#FF0000] rounded-3xl p-6 text-left bg-[#02093D] backdrop-blur-sm hover:shadow-[0_0_20px_rgba(255,0,0,0.5)] transition-all duration-300 h-full"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -410,7 +410,7 @@ const FeatureCard = ({ title, description, iconSrc, altText, isActive, onToggle 
   return (
     <div
       onClick={onToggle}
-      className={`relative group bg-[#02093D] border border-[#FF0000] border-2 rounded-3xl p-8 text-left backdrop-blur-sm transition-all duration-300 overflow-hidden transform-gpu flex flex-col items-center cursor-pointer ${isActive ? '-translate-y-1 shadow-[0_0_20px_rgba(255,0,0,0.5)]' : 'hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(255,0,0,0.5)]'}`}
+      className={`relative group bg-[#02093D] border border-[#FF0000] border-2 rounded-3xl p-8 text-left backdrop-blur-sm transition-all duration-300 overflow-hidden transform-gpu flex flex-col items-center cursor-pointer h-full ${isActive ? '-translate-y-1 shadow-[0_0_20px_rgba(255,0,0,0.5)]' : 'hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(255,0,0,0.5)]'}`}
     >
 
       <div className="relative z-20 flex flex-col items-center w-full">
@@ -490,93 +490,105 @@ const AboutUs = () => {
   return (
     <section className="w-full py-20 bg-[#010524ff] text-white relative" ref={containerRef}>
 
-      <div className="max-w-[90vw] xl:max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-[90vw] xl:max-w-7xl mx-auto px-6 relative z-10 reveal">
         <h2 className="text-3xl md:text-5xl text-[#f17575ff] font-bold text-center mb-16 font-['PPMori'] tracking-tight">
           <span className="relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-[#f17575ff] after:transition-all after:duration-300 hover:after:w-full">
             About Us
           </span>
         </h2>
 
-        <div className="flex flex-col lg:flex-row items-stretch gap-6 lg:gap-0 mb-12">
+        <div className="flex flex-col lg:flex-row items-stretch gap-6 lg:gap-0 mb-12 reveal-container">
           {/* STAT CARD 1: Registrations */}
-          <StatCard
-            number={`${registrations}+`}
-            label="Registrations"
-            icon={
-              <Image
-                src={contactFormIcon}
-                alt="Registrations"
-                width={32}
-                height={32}
-                className="w-8 h-8"
-                style={{ filter: 'brightness(0) invert(1)' }}
-              />
-            }
-          />
+          <div className="reveal-item flex-1 h-full">
+            <StatCard
+              number={`${registrations}+`}
+              label="Registrations"
+              icon={
+                <Image
+                  src={contactFormIcon}
+                  alt="Registrations"
+                  width={32}
+                  height={32}
+                  className="w-8 h-8"
+                  style={{ filter: 'brightness(0) invert(1)' }}
+                />
+              }
+            />
+          </div>
 
           {/* STAT CARD 2: Participations */}
-          <StatCard
-            number={`${participations}+`}
-            label="On-Campus Participations"
-            icon={
-              <Image
-                src={raiseHandIcon}
-                alt="On-Campus Participations"
-                width={32}
-                height={32}
-                className="w-8 h-8"
-                style={{ filter: 'brightness(0) invert(1)' }}
-              />
-            }
-          />
+          <div className="reveal-item flex-1 h-full">
+            <StatCard
+              number={`${participations}+`}
+              label="On-Campus Participations"
+              icon={
+                <Image
+                  src={raiseHandIcon}
+                  alt="On-Campus Participations"
+                  width={32}
+                  height={32}
+                  className="w-8 h-8"
+                  style={{ filter: 'brightness(0) invert(1)' }}
+                />
+              }
+            />
+          </div>
 
           {/* STAT CARD 3: Reach */}
-          <StatCard
-            number={`${reach}+`}
-            label="Reach on Social Media"
-            icon={
-              <Image
-                src={socialMediaIcon}
-                alt="Reach on Social Media"
-                width={32}
-                height={32}
-                className="w-8 h-8"
-                style={{ filter: 'brightness(0) invert(1)' }}
-              />
-            }
-          />
+          <div className="reveal-item flex-1 h-full">
+            <StatCard
+              number={`${reach}+`}
+              label="Reach on Social Media"
+              icon={
+                <Image
+                  src={socialMediaIcon}
+                  alt="Reach on Social Media"
+                  width={32}
+                  height={32}
+                  className="w-8 h-8"
+                  style={{ filter: 'brightness(0) invert(1)' }}
+                />
+              }
+            />
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch" ref={featuresRef}>
-          <FeatureCard
-            title="About NMIT Hacks"
-            description="NMIT Hacks builds a nationwide community of student innovators — connecting participants from top institutions with industry mentors. Over multiple editions we provide learning, collaboration and career-growth opportunities through a mix of digital and on-campus activities."
-            iconSrc={aboutus}
-            altText="About Us"
-            isActive={activeFeatureIndex === 0}
-            onToggle={() => handleFeatureToggle(0)}
-          />
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch reveal-container" ref={featuresRef}>
+          <div className="reveal-item h-full">
+            <FeatureCard
+              title="About NMIT Hacks"
+              description="NMIT Hacks builds a nationwide community of student innovators — connecting participants from top institutions with industry mentors. Over multiple editions we provide learning, collaboration and career-growth opportunities through a mix of digital and on-campus activities."
+              iconSrc={aboutus}
+              altText="About Us"
+              isActive={activeFeatureIndex === 0}
+              onToggle={() => handleFeatureToggle(0)}
+            />
+          </div>
 
-          <FeatureCard
-            title="Expect Great Things"
-            description="Mentors from industry, hands-on workshops, and curated challenges give you the tools to build, present, and scale great ideas. Expect mentorship, judged tracks, and prizes that help projects move forward."
-            iconSrc={greatThingsImg}
-            altText="Expect great things"
-            isActive={activeFeatureIndex === 1}
-            onToggle={() => handleFeatureToggle(1)}
-          />
+          <div className="reveal-item h-full">
+            <FeatureCard
+              title="Expect Great Things"
+              description="Mentors from industry, hands-on workshops, and curated challenges give you the tools to build, present, and scale great ideas. Expect mentorship, judged tracks, and prizes that help projects move forward."
+              iconSrc={greatThingsImg}
+              altText="Expect great things"
+              isActive={activeFeatureIndex === 1}
+              onToggle={() => handleFeatureToggle(1)}
+            />
+          </div>
 
-          <FeatureCard
-            title="All Students Welcome!"
-            description="Beginners and experienced hackers both thrive here — no entry fee required. Teams, solo participants, and students from any discipline are encouraged to join, learn, and collaborate."
-            iconSrc={welcome}
-            altText="All Students Welcome"
-            isActive={activeFeatureIndex === 2}
-            onToggle={() => handleFeatureToggle(2)}
-          />
+          <div className="reveal-item h-full">
+            <FeatureCard
+              title="All Students Welcome!"
+              description="Beginners and experienced hackers both thrive here — no entry fee required. Teams, solo participants, and students from any discipline are encouraged to join, learn, and collaborate."
+              iconSrc={welcome}
+              altText="All Students Welcome"
+              isActive={activeFeatureIndex === 2}
+              onToggle={() => handleFeatureToggle(2)}
+            />
+          </div>
         </div>
       </div>
-    </section>
+    </section >
   )
 }
 

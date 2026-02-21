@@ -59,7 +59,7 @@ const Home = () => {
           particleCount={12}
         />
       </section>
-      
+
       <section id="brochure">
         <Brochure />
       </section>
@@ -78,7 +78,7 @@ const Home = () => {
       <section id="contact">
         <ContactUs />
       </section>
-    <script defer async src="https://apply.devfolio.co/v2/sdk.js"></script>
+      <script defer async src="https://apply.devfolio.co/v2/sdk.js"></script>
     </main>
   )
 }

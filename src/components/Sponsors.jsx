@@ -468,9 +468,9 @@ const GlobalSpotlight = ({
   return null;
 };
 
-const BentoCardGrid = ({ children, gridRef }) => (
+const BentoCardGrid = ({ children, gridRef, className = "" }) => (
   <div
-    className="bento-section grid gap-2 p-3 max-w-[54rem] select-none relative mx-auto"
+    className={`bento-section grid gap-2 p-3 max-w-[54rem] select-none relative mx-auto ${className}`}
     style={{ fontSize: 'clamp(1rem, 0.9rem + 0.5vw, 1.5rem)' }}
     ref={gridRef}
   >
@@ -701,7 +701,7 @@ const Sponsors = ({
         />
       )}
 
-      <BentoCardGrid gridRef={gridRef}>
+      <BentoCardGrid gridRef={gridRef} className="reveal">
         {/* Title inside Grid for perfect alignment */}
         <h2 className="text-3xl md:text-5xl font-bold text-center text-[#f17575ff] mb-8 z-30 relative font-['PPMori'] tracking-tight pt-4 w-full">
           <span className="relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-[#f17575ff] after:transition-all after:duration-300 hover:after:w-full">
@@ -711,7 +711,7 @@ const Sponsors = ({
 
         <div className="card-responsive flex flex-col items-center">
           {['platinum', 'gold', 'silver', 'community'].map((tier) => (
-            <div key={tier} className="w-full flex flex-col items-center gap-8 mb-8">
+            <div key={tier} className="w-full flex flex-col items-center gap-8 mb-8 reveal-container">
               <ShinyText
                 text={tier === 'community' ? 'Community Partners' : tier.charAt(0).toUpperCase() + tier.slice(1)}
                 disabled={false}
@@ -742,7 +742,7 @@ const Sponsors = ({
                     return (
                       <ParticleCard
                         key={`${tier}-${index}-${tierColor}`} // Force re-render if color changes
-                        className={baseClassName}
+                        className={`${baseClassName} reveal-item`}
                         style={cardStyle}
                         disableAnimations={shouldDisableAnimations}
                         particleCount={particleCount}
@@ -756,20 +756,20 @@ const Sponsors = ({
                         <div className="card__content flex flex-col items-center justify-center relative text-white h-full z-10 p-4 text-center w-full">
                           {item.image ? (
                             <div className="relative w-full h-full flex items-center justify-center p-4">
-                                {item.title === "Devfolio" ? (
-                                  <img
-                                    src="/assets/Devfolio.png"
-                                    alt="DEVFOLIO LOGO"
-                                    className="object-contain"
-                                  />
-                                ) : (
-                                  <Image
-                                    src={item.image}
-                                    alt={item.alt || item.title}
-                                    fill
-                                    className="object-contain p-4"
-                                  />
-                                )}
+                              {item.title === "Devfolio" ? (
+                                <img
+                                  src="/assets/Devfolio.png"
+                                  alt="DEVFOLIO LOGO"
+                                  className="object-contain"
+                                />
+                              ) : (
+                                <Image
+                                  src={item.image}
+                                  alt={item.alt || item.title}
+                                  fill
+                                  className="object-contain p-4"
+                                />
+                              )}
                             </div>
                           ) : (
                             <h3 className={`font-bold text-lg md:text-xl text-white/90 ${textAutoHide ? 'text-clamp-2' : ''}`}>
@@ -784,7 +784,7 @@ const Sponsors = ({
                   return (
                     <div
                       key={`${tier}-${index}`}
-                      className={baseClassName}
+                      className={`${baseClassName} reveal-item`}
                       style={cardStyle}
                     >
                       <div className="card__content flex flex-col items-center justify-center relative text-white h-full z-10 p-4 text-center w-full">

@@ -8,15 +8,16 @@ const ContactUs = () => {
     <section className="min-h-screen bg-[#010524ff] text-white py-12 px-4 flex flex-col items-center justify-between relative overflow-hidden">
 
       {/* 1. Header Section */}
-      <h2 className="text-3xl md:text-5xl font-bold mb-8 md:mb-12 text-center text-[#f17575ff]">
-        <span className="relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-[#f17575ff] after:transition-all after:duration-300 hover:after:w-full">
-          Contact Us
-        </span>
-      </h2>
+      <div className="reveal">
+        <h2 className="text-3xl md:text-5xl font-bold mb-8 md:mb-12 text-center text-[#f17575ff]">
+          <span className="relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-[#f17575ff] after:transition-all after:duration-300 hover:after:w-full">
+            Contact Us
+          </span>
+        </h2>
+      </div>
 
       {/* 2. Logos & Map Container */}
-      <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center mb-12">
-
+      <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center mb-12 reveal">
         {/* Left Column: Map */}
         <div className="w-full">
           <div className="w-full h-56 md:h-80 lg:h-96 rounded-lg overflow-hidden border-2 border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.1)]">
@@ -49,16 +50,13 @@ const ContactUs = () => {
       </div>
 
       {/* 3. Footer / Socials Section */}
-      <div className="flex flex-col items-center gap-6 w-full z-10">
-
+      <div className="flex flex-col items-center gap-6 w-full z-10 reveal">
         <p className="text-lg md:text-xl flex items-center gap-2">
           You can visit us <span role="img" aria-label="smile">😊</span>
         </p>
 
         <div className="flex flex-wrap justify-center gap-4 md:gap-6">
           <SocialIcon href="https://www.instagram.com/nmit_hacks?igsh=YzJyaGx4Z2oyZzZy" icon={<FaInstagram size={24} />} />
-          {/* <SocialIcon href="https://facebook.com" icon={<FaFacebookF size={24} />} /> */}
-          {/* <SocialIcon href="https://discord.com" icon={<FaDiscord size={24} />} /> */}
           <SocialIcon href="https://www.linkedin.com/in/nmit-hacks-8082531bb/" icon={<FaLinkedinIn size={24} />} />
           <SocialIcon href="https://x.com/NMIT_Hacks" icon={<FaXTwitter size={24} />} />
         </div>
