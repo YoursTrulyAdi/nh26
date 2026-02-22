@@ -28,38 +28,299 @@ const TEAMS_DATA = [
     name: 'Operations Team', 
     members: [
       {
-        name: 'Pavan',
+        name: 'Pavan Teja',
         role: 'Operations Co-Lead',
-        image: '/assets/Teams/Pavan.jpg',
+        image: '/assets/TeamPics/Pavan.png',
+        imageClassName: 'scale-[1.5] object-[center_-60%]',
         socials: {
           linkedin: 'https://www.linkedin.com/in/itspavant',
           instagram: 'https://www.instagram.com/pavanteja443'
         }
       },
       {
-        name: 'Roma',
+        name: 'Roma Narayan',
         role: 'Operations Co-Lead',
-        image: '/assets/Teams/Roma.JPG',
+        image: '/assets/TeamPics/Roma.png',
+        imageClassName: 'scale-[1.5] object-[center_-60%] ',
         socials: {
-          linkedin: 'www.linkedin.com/in/roma-n12',
+          linkedin: 'https://www.linkedin.com/in/roma-n12',
           instagram: 'https://www.instagram.com/_roma.12_/',
           twitter: 'https://x.com/Romalisha12'
         }
       },
       {
-        name: 'Bhavy',
+        name: 'Bhavy Shukla',
         role: 'Operations Core',
-        image: '/assets/Teams/Bhavy.jpg',
+        image: '/assets/TeamPics/Bhavy.png',
+        imageClassName: 'scale-[1.5] object-[center_-60%]',
+        socials: {}
+      },
+      {
+        name: 'Rishabh Jeppu',
+        role: 'Operations Mentor',
+        image: '/assets/TeamPics/Rishabh.png',
+        imageClassName: 'scale-[1.4] object-[center_-60%]',
+        socials: {
+          linkedin: 'https://www.linkedin.com/in/rishabh-jeppu/'
+        }
+      },
+      {
+        name: 'Kavya Y P',
+        role: 'Operations Mentor',
+        image: '/assets/TeamPics/Kavya.png',
+        imageClassName: 'scale-[1.5] object-[center_-60%]',
+        socials: {
+          linkedin: 'https://www.linkedin.com/in/kavya-yp/',
+          twitter: 'https://x.com/YpKavya?t=Yhk3eQpXt5zUn5hkPYLYzQ&s=09',
+          instagram: 'https://www.instagram.com/kavya___parmesh'
+        }
+      }
+    ]
+  },
+  { 
+    name: 'Sponsorship Team', 
+    members: [
+      {
+        name: 'Arindam Kalita',
+        role: 'Sponsorship Mentor',
+        image: '/assets/TeamPics/Arindam.png',
+        imageClassName: 'scale-[1.5] object-[center_-60%]',
+        socials: {
+          linkedin: 'https://www.linkedin.com/in/arindam-kalita-4a6514250/'
+        }
+      },
+      {
+        name: 'Neelanshu Ranjan',
+        role: 'Sponsorship Lead',
+        image: '/assets/TeamPics/Neelanshu.png',
+        imageClassName: 'scale-[1.5] object-[center_-70%]',
+        socials: {}
+      },
+      {
+        name: 'Adarsh U A',
+        role: 'Sponsorship Mentor',
+        image: '/assets/TeamPics/Adarsh.png',
+        imageClassName: 'scale-[1.5] object-[center_-60%]',
+        socials: {
+          linkedin: 'https://www.linkedin.com/in/adarsh-u-a-6493222a1/',
+          instagram: 'https://www.instagram.com/16_adrsshh'
+        }
+      }
+    ]
+  },
+  { 
+    name: 'Design Team', 
+    members: [
+      {
+        name: 'Kopal V',
+        role: 'Design Co-Lead',
+        image: '/assets/TeamPics/Kopal.png',
+        imageClassName: 'scale-[1.5] object-[center_-65%]',
+        socials: {
+          instagram: 'https://www.instagram.com/kopalllllllll?igsh=MWM0MWh0NjJhd2dzNg==',
+          linkedin: 'https://www.linkedin.com/in/kopal-vajpayee-962b55287/',
+          twitter: 'https://share.google/n0SF78YQo1T4oKjsz'
+        }
+      },
+      {
+        name: 'Rashmika R',
+        role: 'Design Co-Lead',
+        image: '/assets/TeamPics/Rashmika.png',
+        imageClassName: 'scale-[1.5] object-[center_-60%]',
+        socials: {
+          instagram: 'https://www.instagram.com/rashmika__157',
+          linkedin:'https://www.linkedin.com/in/rashmika-ramesh?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
+        }
+      },
+      {
+        name: 'Kusheen Dhar',
+        role: 'Design Core',
+        image: '/assets/TeamPics/Kusheen.png',
+        imageClassName: 'scale-[1.5] object-[center_-60%]',
+        socials: {}
+      },
+      {
+        name: 'Priya A Reddy',
+        role: 'Design Mentor',
+        image: '/assets/TeamPics/Priya.png',
+        imageClassName: 'scale-[1.2] object-[center_-25%]',
+        socials: {
+          instagram: 'https://www.instagram.com/p_reddy04',
+        }
+      },
+      {
+        name: 'Ayusha Mahi',
+        role: 'Design Mentor',
+        image: '/assets/TeamPics/Ayusha.png',
+        imageClassName: 'scale-[1.21] object-[center_-35%]',
+        socials: {
+          instagram: 'https://www.instagram.com/ayusha_mahi',
+          twitter: 'https://x.com/AyushaMahi?t=vwiabaKfMulksPL5Nt4mww&s=09',
+          linkedin:'https://www.linkedin.com/in/ayusha-mahi/'
+        }
+      }
+    ]
+  },
+  { 
+    name: 'Social Media Team', 
+    members: [
+      {
+        name: 'Shreyansh Singh',
+        role: 'Social Media Core',
+        image: '/assets/TeamPics/Shreyansh.png',
+        imageClassName: 'scale-[1.4] object-[center_-60%]',
+        socials: {
+          instagram: 'https://www.instagram.com/shreyansh_0505/',
+          linkedin: 'https://www.linkedin.com/in/shreyansh-singh-424b0833a/',
+        }
+      },
+      {
+        name: 'Kolli Sathvi',
+        role: 'Social Media Lead',
+        image: '/assets/TeamPics/Sathvi (4).png',
+        imageClassName: 'scale-[1.6] object-[center_-30%]',
+        socials: {}
+      },
+      {
+        name: 'Anshika',
+        role: 'Social Media Core',
+        image: '/assets/TeamPics/Anshika.png',
+        imageClassName: 'scale-[1.5] object-[center_-60%]',
+        socials: {}
+      },
+      {
+        name: 'Apeksha T S',
+        role: 'Social Media Mentor',
+        image: '/assets/TeamPics/Apeksha.png',
+        imageClassName: 'scale-[1.5] object-[center_-60%]',
+        socials: {
+          linkedin: 'https://www.linkedin.com/in/apekshats',
+          instagram:'https://www.instagram.com/apeksha_saravu'
+        }
+      },
+      {
+        name: 'Prajwal H',
+        role: 'Social Media Mentor',
+        image: '/assets/TeamPics/Prajwal2.png',
+        imageClassName: 'scale-[0.99 object-[center_-2%]',
+        socials: {
+          linkedin: 'https://www.linkedin.com/in/prajwalhundekar-519813262/',
+          twitter: 'https://x.com/IMMORTALsays_?t=_RUE_jE7u_QnEazP5RKG2w&s=09',
+          instagram:'https://www.instagram.com/___.immortal_'
+        }
+      }
+    ]
+  },
+  { 
+    name: 'Content Team', 
+    members: [
+      {
+        name: 'Inaya Firdous',
+        role: 'Content Lead',
+        image: '/assets/TeamPics/Inaya.png',
+        imageClassName: 'scale-[1.5] object-[center_-60%]',
+        socials: {
+          instagram: 'https://www.instagram.com/inayafir',
+          linkedin:'https://www.linkedin.com/in/inayafirdous?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
+        }
+      },
+      {
+        name: 'Kanishka Khaitan',
+        role: 'Content Core',
+        image: '/assets/TeamPics/Kanishka (1).png',
+        imageClassName: 'scale-[1.5] object-[center_-30%]',
+        socials: {
+          instagram: 'https://www.instagram.com/__kanishka__khaitan?igsh=Y25tMzF0ZjdqM21r&utm_source=qr',
+          linkedin:'https://www.linkedin.com/in/kanishka-khaitan?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app'
+        }
+      },
+      {
+        name: 'Srujana R Bharadwaj',
+        role: 'Content Mentor',
+        image: '/assets/TeamPics/Srujana.png',
+        imageClassName: 'scale-[1.5] object-[center_-60%]',
+        socials: {
+          linkedin: 'https://www.linkedin.com/in/srujana-r-bharadwaj-6999152ab/',
+          twitter: 'https://x.com/srb170188',
+          instagram: 'https://www.instagram.com/dark.angel_8842/'
+        }
+      }
+    ]
+  },
+  { 
+    name: 'DevFolio Team', 
+    members: [
+      {
+        name: 'Prakhyath Kudva',
+        role: 'DevFolio Co-Lead',
+        image: '/assets/TeamPics/Prakhyath.png',
+        imageClassName: 'scale-[1.15] object-[center_-30%]',
+        socials: {
+          instagram: 'https://www.instagram.com/prakhyath.kudva',
+          twitter:'https://x.com/KudvaPrakhyath',
+          linkedin:'https://www.linkedin.com/in/prakhyath-kudva-bb009b274/'
+        }
+      },
+      {
+        name: 'Anu',
+        role: 'DevFolio Co-Lead',
+        image: '/assets/TeamPics/Anu (1).png',
+        imageClassName: 'scale-[1.5] object-[center_-60%]',
+        socials: {}
+      },
+      {
+        name: 'Dhanusha Reddy',
+        role: 'DevFolio Mentor',
+        image: '/assets/TeamPics/Dhanusha.png',
+        imageClassName: 'scale-[1.5] object-[center_-60%]',
+        socials: {
+          linkedin: 'https://www.linkedin.com/in/dhanusha-modiyam/',
+          instagram:'https://www.instagram.com/dhanushha_/profilecard/'
+        }
+      }
+    ]
+  },
+  { 
+    name: 'Tech Team', 
+    members: [
+      {
+        name: 'Abhay Surya',
+        role: 'Tech Co-Lead',
+        image: '/assets/TeamPics/Abhay.png',
+        imageClassName: 'scale-[1.35] object-[center_-55%]',
+        socials: {}
+      },
+      {
+        name: 'Gurucharan M',
+        role: 'Tech Co-Lead',
+        image: '/assets/TeamPics/Gurucharan.png',
+        imageClassName: 'scale-[1.6] object-[center_-60%]',
+        socials: {
+          instagram: 'https://www.instagram.com/guru.ch05/',
+          linkedin: 'www.linkedin.com/in/gurucharan-maripala-a04b2a319',
+          twitter:'https://x.com/GurucharanM05'
+        }
+      },
+      {
+        name: 'Alex Catchick',
+        role: 'Tech Mentor',
+        image: '/assets/TeamPics/Alex.png',
+        imageClassName: 'scale-[1.5] object-[center_-60%]',
+        socials: {
+          linkedin: 'https://www.linkedin.com/in/alex-catchick/',
+          twitter: 'https://x.com/AC070323?t=eL_rDOtoQRFxiXmfi9eigA&s=09',
+          instagram:'https://www.instagram.com/exabond'
+        }
+      },
+      {
+        name: 'Yashas C Raju',
+        role: 'Tech Mentor',
+        image: '/assets/TeamPics/Yashas.png', 
+        imageClassName: 'scale-[1.4] object-[center_50%]',
         socials: {}
       }
     ]
   },
-  { name: 'Sponsorship Team', count: 3 },
-  { name: 'Design Team', count: 5 },
-  { name: 'Social Media Team', count: 5 },
-  { name: 'Content Team', count: 3 },
-  { name: 'DevFolio Team', count: 3 },
-  { name: 'Tech Team', count: 4 },
 ];
 
 const FlipMemberCard = ({ member, onHoverStart, onHoverEnd }) => {
@@ -147,12 +408,12 @@ const FlipMemberCard = ({ member, onHoverStart, onHoverEnd }) => {
           className="absolute inset-0 w-full h-full rounded-[35px] bg-[#02093D] border-2 border-[#ff0000] flex flex-col items-center justify-start pt-10 backface-hidden"
           style={{ backfaceVisibility: 'hidden' }}
         >
-          <div className="relative w-[120px] h-[120px] md:w-[150px] md:h-[150px] mb-6 rounded-full overflow-hidden border-1 border-[#ff0000] shadow-sm">
+          <div className="relative w-[120px] h-[120px] md:w-[150px] md:h-[150px] mb-6 rounded-full overflow-hidden border-2 border-[#ff0000] shadow-sm">
             <Image 
                 src={data.image} 
                 alt={data.name} 
                 fill
-                className="object-cover"
+                className={`object-cover ${data.imageClassName || ''}`}
             />
           </div>
           <div className="font-bold text-lg md:text-xl text-white text-center px-4 font-['PPMori']">{data.name}</div>

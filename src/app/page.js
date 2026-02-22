@@ -66,7 +66,7 @@ const Home = () => {
 
       {/* <Teams /> */}
       <section id="teams">
-        {/* <Teams2/> */}
+        <Teams2/>
       </section>
       {/* Container to center the card so it doesn't stretch full width */}
       {/* <div className="flex justify-center py-20">
