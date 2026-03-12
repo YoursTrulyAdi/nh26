@@ -61,9 +61,14 @@ const ContactUs = () => {
           <SocialIcon href="https://x.com/NMIT_Hacks" icon={<FaXTwitter size={24} />} />
         </div>
 
-        <button className="mt-4 px-6 py-2 md:px-8 md:py-3 rounded-full border-2 cursor-pointer border-red-500 text-white hover:bg-white hover:text-black transition-all duration-300 font-semibold text-sm md:text-base">
+        <a
+          href="https://github.com/MLH/mlh-policies/blob/main/member-event-guidelines.md"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 px-6 py-2 md:px-8 md:py-3 rounded-full border-2 cursor-pointer border-red-500 text-white hover:bg-white hover:text-black transition-all duration-300 font-semibold text-sm md:text-base block text-center"
+        >
           Code of Conduct
-        </button>
+        </a>
 
         <p className="mt-2 text-gray-300 text-center">
           For event-related queries, contact: <a href="mailto:hackathon@nmit.ac.in" className="text-[#f17575ff] font-bold hover:underline">hackathon@nmit.ac.in</a>
