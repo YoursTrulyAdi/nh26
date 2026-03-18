@@ -19,7 +19,12 @@ const sponsorsData = {
   silver: Array(4).fill({ title: 'Coming Soon!' }),
   community: [
     { title: 'Devfolio', image: '/assets/Devfolio.png', link: 'https://devfolio.co/', alt: 'DEVFOLIO LOGO' },
-    { title: 'Coming Soon!' }
+    { title: 'Major League Hacking', image: '/assets/mlh-logo-white.png', link: 'https://mlh.io/', alt: 'MLH LOGO' },
+    { title: 'Dev Army', image: '/assets/devArmyLogo.png', alt: 'DEV ARMY LOGO' },
+    // { title: 'Coming Soon!' }
+  ],
+  referral: [
+    { title: 'Hul-Chul', image: '/assets/HulChul_white.png', alt: 'Hul-Chul LOGO' }
   ]
 };
 
@@ -27,21 +32,24 @@ const tierColors = {
   platinum: '229, 228, 226', // #E5E4E2
   gold: '255, 215, 0',       // #FFD700
   silver: '192, 192, 192',    // #C0C0C0
-  community: '255, 0, 0'   // #ff0000 (red)
+  community: '255, 0, 0',    // #ff0000 (red)
+  referral: '255, 0, 0'
 };
 
 const tierHexColors = {
   platinum: '#b5b5b5',
   gold: '#b5b5b5',
   silver: '#b5b5b5',
-  community: '#b5b5b5'
+  community: '#b5b5b5',
+  referral: '#b5b5b5'
 };
 
 const tierShineColors = {
   platinum: '#ffffffff',
   gold: '#FFD700',
   silver: '#dededeff',
-  community: '#f17575ff'
+  community: '#f17575ff',
+  referral: '#f17575ff'
 };
 
 const createParticleElement = (x, y, color = DEFAULT_GLOW_COLOR) => {
@@ -701,7 +709,7 @@ const Sponsors = ({
         />
       )}
 
-      <BentoCardGrid gridRef={gridRef} className="reveal">
+      <BentoCardGrid gridRef={gridRef} className="reveal reveal-early">
         {/* Title inside Grid for perfect alignment */}
         <h2 className="text-3xl md:text-5xl font-bold text-center text-[#f17575ff] mb-8 z-30 relative font-['PPMori'] tracking-tight pt-4 w-full">
           <span className="relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-[#f17575ff] after:transition-all after:duration-300 hover:after:w-full">
@@ -710,10 +718,10 @@ const Sponsors = ({
         </h2>
 
         <div className="card-responsive flex flex-col items-center">
-          {['platinum', 'gold', 'silver', 'community'].map((tier) => (
-            <div key={tier} className="w-full flex flex-col items-center gap-8 mb-8 reveal-container">
+          {['platinum', 'gold', 'silver', 'community', 'referral'].map((tier) => (
+            <div key={tier} className="w-full flex flex-col items-center gap-8 mb-8 reveal-container reveal-early">
               <ShinyText
-                text={tier === 'community' ? 'Community Partners' : tier.charAt(0).toUpperCase() + tier.slice(1)}
+                text={tier === 'community' ? 'Community Partners' : tier === 'referral' ? 'Referral Partner' : tier.charAt(0).toUpperCase() + tier.slice(1)}
                 disabled={false}
                 speed={3}
                 className="text-2xl md:text-2xl font-bold uppercase tracking-widest font-['PPMori'] opacity-90"

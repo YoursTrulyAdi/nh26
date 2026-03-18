@@ -5,6 +5,7 @@ import Link from 'next/link';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
 
   const navItems = [
     { name: 'Home', href: '/' },
@@ -12,10 +13,44 @@ const Navbar = () => {
     { name: 'Tracks', href: '#tracks' },
     { name: 'Prizes', href: '#prizes' },
     { name: 'Sponsors', href: '#sponsors' },
-    // { name: 'Teams', href: '#teams' },
+    { name: 'Teams', href: '#teams' },
     { name: 'FAQs', href: '#faqs' },
     { name: 'Contact Us', href: '#contact' },
   ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Find all sections that have IDs
+      const sections = document.querySelectorAll('section[id]');
+      let currentSectionId = '';
+
+      // Set 'Home' as active if we are very close to the top
+      if (window.scrollY < 100) {
+        currentSectionId = '/';
+      } else {
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+          
+          // Check if scroll position is within this section
+          // Offset by a bit to trigger earlier when scrolling down
+          if (window.scrollY >= sectionTop - 150 && window.scrollY < sectionTop + sectionHeight - 150) {
+            currentSectionId = `#${section.getAttribute('id')}`;
+          }
+        });
+      }
+
+      setActiveSection(currentSectionId);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    // Trigger once on mount
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -57,16 +92,19 @@ const Navbar = () => {
 
         {/* Desktop Links */}
         <ul className="hidden md:flex items-center gap-3 lg:gap-6">
-          {navItems.map((item) => (
-            <li key={item.name}>
-              <Link
-                href={item.href}
-                className="text-sm font-bold text-gray-300 hover:text-[#ff0000] transition-colors duration-200 uppercase tracking-wide font-['PPMori'] whitespace-nowrap"
-              >
-                {item.name}
-              </Link>
-            </li>
-          ))}
+          {navItems.map((item) => {
+            const isActive = activeSection === item.href || (activeSection === '' && item.href === '/');
+            return (
+              <li key={item.name}>
+                <Link
+                  href={item.href}
+                  className={`text-sm font-bold transition-colors duration-200 uppercase tracking-wide font-['PPMori'] whitespace-nowrap hover:text-[#ff0000] ${isActive ? 'text-[#ff0000]' : 'text-gray-300'}`}
+                >
+                  {item.name}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
 
         {/* Mobile Menu Toggle */}
@@ -92,16 +130,19 @@ const Navbar = () => {
         <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-4 rounded-2xl p-4 flex flex-col gap-2 z-40 md:hidden w-[70vw] max-w-sm animate-fade-in-up transition-all duration-500
           bg-[#02093D] border-2 border-[#ff0000] shadow-[0_8px_32px_rgba(0,0,0,0.3)]
         `}>
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              onClick={() => setIsOpen(false)}
-              className="text-sm font-bold text-gray-300 hover:text-[#ff0000] px-4 py-3 rounded-lg transition-all duration-200 uppercase tracking-wide font-['PPMori'] block text-center"
-            >
-              {item.name}
-            </Link>
-          ))}
+          {navItems.map((item) => {
+            const isActive = activeSection === item.href || (activeSection === '' && item.href === '/');
+            return (
+              <Link
+                key={item.name}
+                href={item.href}
+                onClick={() => setIsOpen(false)}
+                className={`text-sm font-bold px-4 py-3 rounded-lg transition-all duration-200 uppercase tracking-wide font-['PPMori'] block text-center hover:text-[#ff0000] ${isActive ? 'text-[#ff0000]' : 'text-gray-300'}`}
+              >
+                {item.name}
+              </Link>
+            );
+          })}
         </div>
       )}
     </nav>

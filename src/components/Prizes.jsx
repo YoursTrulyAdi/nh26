@@ -193,6 +193,18 @@ const Prizes = () => {
           </div>
 
         </div>
+
+        {/* Track Prizes Box */}
+        <div className="w-full max-w-xs mx-auto mt-12 overflow-hidden bg-[#02093D] rounded-2xl border-2 border-[#ff0000] px-3 py-4 reveal z-20 relative shadow-[0_4px_20px_rgba(255,0,0,0.3)] transition-transform duration-300 hover:scale-[1.03] hover:shadow-[0_8px_30px_rgba(255,0,0,0.5)]">
+          <div className="flex justify-center flex-col items-center">
+             <div className="text-[#ef8f8fff] font-bold text-lg tracking-[0.2em] uppercase mb-1 text-center font-['PPMori']">
+                Track Prizes
+             </div>
+             <div className="bg-gradient-to-r from-[#F54646] to-[#FD9A9A] bg-clip-text text-transparent text-3xl md:text-4xl font-extrabold pb-1 text-center drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+                ₹ 10,000
+             </div>
+          </div>
+        </div>
       </div>
     </section>
   )

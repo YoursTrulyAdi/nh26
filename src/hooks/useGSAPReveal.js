@@ -25,12 +25,11 @@ export const useGSAPReveal = () => {
         const revealElements = gsap.utils.toArray(".reveal");
         const staggerContainers = gsap.utils.toArray(".reveal-container");
 
-        // Helper to get consistent animation params
         const getAnimParams = (el, isStagger = false) => {
             let props = {
                 y: 20,
                 scale: 0.98,
-                duration: 1.5,
+                duration: 1,
                 ease: "expo.out",
                 autoAlpha: 0,
             };
@@ -45,6 +44,10 @@ export const useGSAPReveal = () => {
                 props.scale = 0.9;
                 props.y = 0;
             }
+            
+            if (el.classList.contains("reveal-no-scale")) {
+                props.scale = undefined;
+            }
 
             return props;
         };
@@ -55,29 +58,28 @@ export const useGSAPReveal = () => {
             if (el.classList.contains("reveal-container")) return;
 
             const animationProps = getAnimParams(el);
+            
+            const fromVars = { autoAlpha: 0, y: animationProps.y || 0 };
+            if (animationProps.x !== undefined) fromVars.x = animationProps.x;
+            if (animationProps.scale !== undefined) fromVars.scale = animationProps.scale;
 
-            gsap.fromTo(el,
-                {
-                    autoAlpha: 0,
-                    y: animationProps.y,
-                    x: animationProps.x || 0,
-                    scale: animationProps.scale
+            const toVars = {
+                autoAlpha: 1,
+                y: 0,
+                x: 0,
+                duration: animationProps.duration,
+                ease: animationProps.ease,
+                clearProps: "transform,scale",
+                scrollTrigger: {
+                    trigger: el,
+                    start: el.classList.contains("reveal-early") ? "top 98%" : "top 92%",
+                    toggleActions: "play none none none",
+                    once: true,
                 },
-                {
-                    autoAlpha: 1,
-                    y: 0,
-                    x: 0,
-                    scale: 1,
-                    duration: animationProps.duration,
-                    ease: animationProps.ease,
-                    scrollTrigger: {
-                        trigger: el,
-                        start: "top 92%",
-                        toggleActions: "play none none none",
-                        once: true,
-                    },
-                }
-            );
+            };
+            if (animationProps.scale !== undefined) toVars.scale = 1;
+
+            gsap.fromTo(el, fromVars, toVars);
         });
 
         // 2. Handle Stagger Containers
@@ -91,28 +93,29 @@ export const useGSAPReveal = () => {
 
             if (children.length > 0) {
                 const animationProps = getAnimParams(container, true);
+                
+                const fromVars = { autoAlpha: 0, y: animationProps.y || 0 };
+                if (animationProps.x !== undefined) fromVars.x = animationProps.x;
+                if (animationProps.scale !== undefined) fromVars.scale = animationProps.scale;
 
-                gsap.fromTo(children,
-                    {
-                        autoAlpha: 0,
-                        y: animationProps.y,
-                        scale: animationProps.scale
+                const toVars = {
+                    autoAlpha: 1,
+                    y: 0,
+                    x: 0,
+                    duration: animationProps.duration,
+                    ease: animationProps.ease,
+                    stagger: 0.15,
+                    clearProps: "transform,scale",
+                    scrollTrigger: {
+                        trigger: container,
+                        start: container.classList.contains("reveal-early") ? "top 98%" : "top 92%",
+                        toggleActions: "play none none none",
+                        once: true,
                     },
-                    {
-                        autoAlpha: 1,
-                        y: 0,
-                        scale: 1,
-                        duration: animationProps.duration,
-                        ease: animationProps.ease,
-                        stagger: 0.15,
-                        scrollTrigger: {
-                            trigger: container,
-                            start: "top 92%",
-                            toggleActions: "play none none none",
-                            once: true,
-                        },
-                    }
-                );
+                };
+                if (animationProps.scale !== undefined) toVars.scale = 1;
+
+                gsap.fromTo(children, fromVars, toVars);
             }
         });
 

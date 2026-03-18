@@ -93,7 +93,7 @@ const Tracks3 = () => {
                 </div>
 
                 {/* Row 1 */}
-                <div className="flex flex-wrap justify-center gap-x-6 gap-y-8 mb-8 reveal-container">
+                <div className="flex flex-wrap justify-center gap-x-6 gap-y-8 mb-8 reveal-container reveal-no-scale">
                     {tracksData.slice(0, 3).map((track, index) => (
                         <Card
                             key={index}
@@ -105,7 +105,7 @@ const Tracks3 = () => {
                 </div>
 
                 {/* Row 2 */}
-                <div className="flex flex-wrap justify-center gap-x-6 gap-y-8 reveal-container">
+                <div className="flex flex-wrap justify-center gap-x-6 gap-y-8 reveal-container reveal-no-scale">
                     {tracksData.slice(3, 5).map((track, index) => (
                         <Card
                             key={index + 3}
