@@ -18,12 +18,12 @@ const sponsorsData = {
   // gold: Array(2).fill({ title: 'Coming Soon!' }),
   // silver: Array(4).fill({ title: 'Coming Soon!' }),
   referral: [
-    { title: 'Hul-Chul', image: '/assets/HulChul_white.png', alt: 'Hul-Chul LOGO' }
+    { title: 'Hul-Chul', image: '/assets/HulChul_white.png', link: 'https://hulchul.in/', alt: 'Hul-Chul LOGO' }
   ],
   community: [
     { title: 'Devfolio', image: '/assets/Devfolio.png', link: 'https://devfolio.co/', alt: 'DEVFOLIO LOGO' },
     { title: 'Major League Hacking', image: '/assets/mlh-logo-white.png', link: 'https://mlh.io/', alt: 'MLH LOGO' },
-    { title: 'Dev Army', image: '/assets/devArmyLogo.png', alt: 'DEV ARMY LOGO' },
+    { title: 'Dev Army', image: '/assets/devArmyLogo.png',link: 'https://thedevarmy.com/', alt: 'DEV ARMY LOGO' },
     // { title: 'Coming Soon!' }
   ]
 };
