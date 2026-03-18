@@ -13,18 +13,18 @@ const MOBILE_BREAKPOINT = 768;
 const sponsorsData = {
   platinum: [
     { title: 'YellowHillsAI', image: '/assets/yellowhillsai.png', link: 'https://yellowhills.ai/' },
-    { title: 'Coming Soon!' }
+    // { title: 'Coming Soon!' }
   ],
-  gold: Array(2).fill({ title: 'Coming Soon!' }),
-  silver: Array(4).fill({ title: 'Coming Soon!' }),
+  // gold: Array(2).fill({ title: 'Coming Soon!' }),
+  // silver: Array(4).fill({ title: 'Coming Soon!' }),
+  referral: [
+    { title: 'Hul-Chul', image: '/assets/HulChul_white.png', alt: 'Hul-Chul LOGO' }
+  ],
   community: [
     { title: 'Devfolio', image: '/assets/Devfolio.png', link: 'https://devfolio.co/', alt: 'DEVFOLIO LOGO' },
     { title: 'Major League Hacking', image: '/assets/mlh-logo-white.png', link: 'https://mlh.io/', alt: 'MLH LOGO' },
     { title: 'Dev Army', image: '/assets/devArmyLogo.png', alt: 'DEV ARMY LOGO' },
     // { title: 'Coming Soon!' }
-  ],
-  referral: [
-    { title: 'Hul-Chul', image: '/assets/HulChul_white.png', alt: 'Hul-Chul LOGO' }
   ]
 };
 
@@ -718,7 +718,7 @@ const Sponsors = ({
         </h2>
 
         <div className="card-responsive flex flex-col items-center">
-          {['platinum', 'gold', 'silver', 'community', 'referral'].map((tier) => (
+          {['platinum', 'referral','community'].map((tier) => (
             <div key={tier} className="w-full flex flex-col items-center gap-8 mb-8 reveal-container reveal-early">
               <ShinyText
                 text={tier === 'community' ? 'Community Partners' : tier === 'referral' ? 'Referral Partner' : tier.charAt(0).toUpperCase() + tier.slice(1)}
