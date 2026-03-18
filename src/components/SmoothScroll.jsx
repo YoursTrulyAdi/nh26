@@ -10,17 +10,15 @@ gsap.registerPlugin(ScrollTrigger);
 
 const SmoothScroll = () => {
   useEffect(() => {
-    // 1. Initialize Lenis with optimized settings for extremely smooth scrolling
+    // 1. Initialize Lenis
     const lenis = new Lenis({
-      duration: 1.5,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // easeOutQuart
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       direction: "vertical",
       gestureDirection: "vertical",
       smooth: true,
-      smoothWheel: true,
-      wheelMultiplier: 1,
       mouseMultiplier: 1,
-      smoothTouch: true, // Enable smooth scrolling on touch devices
+      smoothTouch: false,
       touchMultiplier: 2,
     });
 
