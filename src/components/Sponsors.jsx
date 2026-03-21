@@ -730,7 +730,7 @@ const Sponsors = ({
           {['platinum', 'referral', 'community', 'ecosystem'].map((tier) => (
             <div key={tier} className="w-full flex flex-col items-center gap-8 mb-8 reveal-container reveal-early">
               <ShinyText
-                text={tier === 'community' ? 'Community Partners' : tier === 'referral' ? 'Referral Partner' : tier === 'ecosystem' ? 'Eco System Partner' : tier.charAt(0).toUpperCase() + tier.slice(1)}
+                text={tier === 'community' ? 'Community Partners' : tier === 'referral' ? 'Referral Partner' : tier === 'ecosystem' ? 'EcoSystem Partner' : tier.charAt(0).toUpperCase() + tier.slice(1)}
                 disabled={false}
                 speed={3}
                 className="text-2xl md:text-2xl font-bold uppercase tracking-widest font-['PPMori'] opacity-90"
