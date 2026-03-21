@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import Starfield from './Starfield';
 
 const SliderRow = ({ direction = 'right', speed = 20, size = '150px', items, rowIndex, activeCard, onCardClick, isExternalPaused, isDesktop }) => {
   // Triple the items to ensure smooth looping without gaps
@@ -170,7 +171,9 @@ const InfiniteSlider = () => {
 
   return (
     <div className="w-full flex flex-col gap-8 py-10 bg-[#010524ff] relative z-10 overflow-hidden">
-      <div className="reveal">
+      <Starfield />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#010524ff] via-transparent to-[#010524ff] z-0 pointer-events-none opacity-80"></div>
+      <div className="reveal relative z-10">
         {/* Gallery Title */}
         <div className="max-w-[90vw] xl:max-w-7xl mx-auto px-6 relative z-10 w-full">
           <h2 className="text-3xl md:text-5xl text-[#f17575ff] font-bold text-center mb-16 font-['PPMori'] tracking-tight">

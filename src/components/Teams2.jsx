@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { motion } from 'motion/react';
+import Starfield from './ui/Starfield';
 
 // Social Icons
 const Icons = {
@@ -505,7 +506,9 @@ const Teams2 = () => {
   };
 
   return (
-    <section className="w-full relative z-10 flex flex-col items-center justify-center bg-[#010524ff] py-20 min-h-screen">
+    <section className="w-full relative z-10 flex flex-col items-center justify-center bg-[#010524ff] py-20 min-h-screen overflow-hidden">
+      <Starfield />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#010524ff] via-transparent to-[#010524ff] z-0 pointer-events-none opacity-80"></div>
       <div className="max-w-[90vw] xl:max-w-7xl mx-auto px-6 relative z-10 w-full mb-16 pt-4">
         <h2 className="text-3xl md:text-5xl text-[#f17575ff] font-bold text-center font-['PPMori'] tracking-tight">
             <span className="relative inline-block after:content-[''] after:absolute after:bottom-[-3] after:left-0 after:w-0 after:h-[2px] after:bg-[#f17575ff] after:transition-all after:duration-300 hover:after:w-full">

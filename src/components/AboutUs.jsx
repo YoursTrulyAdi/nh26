@@ -1,6 +1,7 @@
 'use client'
 import React, { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
+import Starfield from './ui/Starfield'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -488,7 +489,13 @@ const AboutUs = () => {
   }
 
   return (
-    <section className="w-full py-20 bg-[#010524ff] text-white relative" ref={containerRef}>
+    <section className="w-full py-20 bg-[#010524ff] text-white relative overflow-hidden" ref={containerRef}>
+      
+      {/* Dynamic Starfield Background */}
+      <Starfield />
+      
+      {/* Subtle Gradient Overlay to blend visually */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#010524ff] via-transparent to-[#010524ff] z-0 pointer-events-none opacity-80"></div>
 
       <div className="max-w-[90vw] xl:max-w-7xl mx-auto px-6 relative z-10 reveal">
         <h2 className="text-3xl md:text-5xl text-[#f17575ff] font-bold text-center mb-16 font-['PPMori'] tracking-tight">

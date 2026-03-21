@@ -4,6 +4,7 @@ import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Image from 'next/image'
+import Starfield from './ui/Starfield';
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -126,7 +127,9 @@ const Prizes = () => {
   }
 
   return (
-    <section ref={container} className="w-full py-20 bg-[#010524ff] text-white overflow-hidden">
+    <section ref={container} className="w-full py-20 bg-[#010524ff] text-white overflow-hidden relative">
+      <Starfield />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#010524ff] via-transparent to-[#010524ff] z-0 pointer-events-none opacity-80"></div>
       <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col items-center">
         <h2 className="text-3xl md:text-5xl font-bold text-center text-[#f17575ff] mb-24 font-['PPMori'] tracking-tight">
           <span className="relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-[#f17575ff] after:transition-all after:duration-300 hover:after:w-full">

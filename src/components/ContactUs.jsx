@@ -2,13 +2,16 @@ import React from 'react';
 import { FaInstagram, FaFacebookF, FaDiscord, FaLinkedinIn } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { BsHeartFill } from "react-icons/bs";
+import Starfield from './ui/Starfield';
 
 const ContactUs = () => {
   return (
     <section className="min-h-screen bg-[#010524ff] text-white py-12 px-4 flex flex-col items-center justify-between relative overflow-hidden">
+      <Starfield />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#010524ff] via-transparent to-[#010524ff] z-0 pointer-events-none opacity-80"></div>
 
       {/* 1. Header Section */}
-      <div className="reveal">
+      <div className="reveal relative z-10">
         <h2 className="text-3xl md:text-5xl font-bold mb-8 md:mb-12 text-center text-[#f17575ff]">
           <span className="relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-[#f17575ff] after:transition-all after:duration-300 hover:after:w-full">
             Contact Us
@@ -17,7 +20,7 @@ const ContactUs = () => {
       </div>
 
       {/* 2. Logos & Map Container */}
-      <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center mb-12 reveal">
+      <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center mb-12 reveal relative z-10">
         {/* Left Column: Map */}
         <div className="w-full">
           <div className="w-full h-56 md:h-80 lg:h-96 rounded-lg overflow-hidden border-2 border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.1)]">

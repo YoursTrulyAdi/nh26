@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Starfield from './ui/Starfield';
 
 const Brochure = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -28,6 +29,8 @@ const Brochure = () => {
 
     return (
         <section className="w-full py-20 bg-[#010524ff] relative z-10 flex flex-col items-center justify-center overflow-hidden">
+            <Starfield />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#010524ff] via-transparent to-[#010524ff] z-0 pointer-events-none opacity-80"></div>
 
             {/* Section Title */}
             <div className="max-w-[90vw] xl:max-w-7xl mx-auto px-6 relative z-10 w-full mb-16">

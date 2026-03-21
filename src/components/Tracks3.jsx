@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Gamepad2, Cpu, BrainCircuit, ShieldCheck, Lightbulb } from 'lucide-react';
+import Starfield from './ui/Starfield';
 
 const tracksData = [
     {
@@ -79,8 +80,10 @@ const Tracks3 = () => {
     };
 
     return (
-        <section className="py-20 bg-[#010524ff]">
-            <div className="container mx-auto px-4 reveal" ref={containerRef}>
+        <section className="py-20 bg-[#010524ff] relative overflow-hidden">
+            <Starfield />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#010524ff] via-transparent to-[#010524ff] z-0 pointer-events-none opacity-80"></div>
+            <div className="container mx-auto px-4 reveal relative z-10" ref={containerRef}>
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-bold text-[#f17575ff] mb-6">
                         <span className="relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-[#f17575ff] after:transition-all after:duration-300 hover:after:w-full">

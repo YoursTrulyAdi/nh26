@@ -4,6 +4,7 @@ import { useRef, useEffect, useState, useCallback } from 'react';
 import { gsap } from 'gsap';
 import Image from 'next/image';
 import ShinyText from "../subcomponents/ShinyText";
+import Starfield from './ui/Starfield';
 
 const DEFAULT_PARTICLE_COUNT = 12;
 const DEFAULT_SPOTLIGHT_RADIUS = 300;
@@ -528,7 +529,9 @@ const Sponsors = ({
   const shouldDisableAnimations = disableAnimations;
 
   return (
-    <section className="w-full py-20 bg-[#010524ff] relative">
+    <section className="w-full py-20 bg-[#010524ff] relative overflow-hidden">
+      <Starfield />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#010524ff] via-transparent to-[#010524ff] z-0 pointer-events-none opacity-80"></div>
       <style>
         {`
           .bento-section {
