@@ -59,6 +59,7 @@ const ContactUs = () => {
           <SocialIcon href="https://www.instagram.com/nmit_hacks?igsh=YzJyaGx4Z2oyZzZy" icon={<FaInstagram size={24} />} />
           <SocialIcon href="https://www.linkedin.com/in/nmit-hacks-8082531bb/" icon={<FaLinkedinIn size={24} />} />
           <SocialIcon href="https://x.com/NMIT_Hacks" icon={<FaXTwitter size={24} />} />
+          <SocialIcon href="https://discord.gg/W6yG2uAcG9" icon={<FaDiscord size={24} />} />
         </div>
 
         <a

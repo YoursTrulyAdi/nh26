@@ -18,13 +18,16 @@ const sponsorsData = {
   // gold: Array(2).fill({ title: 'Coming Soon!' }),
   // silver: Array(4).fill({ title: 'Coming Soon!' }),
   referral: [
-    { title: 'Hul-Chul', image: '/assets/HulChul_white.png', link: 'https://hulchul.in/', alt: 'Hul-Chul LOGO' }
+    { title: 'Hul-Chul', image: '/assets/HulChul cropped 2.png', link: 'https://hulchul.in/', alt: 'Hul-Chul LOGO' }
   ],
   community: [
     { title: 'Devfolio', image: '/assets/Devfolio.png', link: 'https://devfolio.co/', alt: 'DEVFOLIO LOGO' },
     { title: 'Major League Hacking', image: '/assets/mlh-logo-white.png', link: 'https://mlh.io/', alt: 'MLH LOGO' },
     { title: 'Dev Army', image: '/assets/devArmyLogo.png',link: 'https://thedevarmy.com/', alt: 'DEV ARMY LOGO' },
     // { title: 'Coming Soon!' }
+  ],
+  ecosystem: [
+    { title: 'The OS Code', image: '/assets/OSCode Logo.png', alt: 'OS Code LOGO' }
   ]
 };
 
@@ -33,7 +36,8 @@ const tierColors = {
   gold: '255, 215, 0',       // #FFD700
   silver: '192, 192, 192',    // #C0C0C0
   community: '255, 0, 0',    // #ff0000 (red)
-  referral: '255, 0, 0'
+  referral: '255, 0, 0',
+  ecosystem: '255, 0, 0'
 };
 
 const tierHexColors = {
@@ -41,7 +45,8 @@ const tierHexColors = {
   gold: '#b5b5b5',
   silver: '#b5b5b5',
   community: '#b5b5b5',
-  referral: '#b5b5b5'
+  referral: '#b5b5b5',
+  ecosystem: '#b5b5b5'
 };
 
 const tierShineColors = {
@@ -49,7 +54,8 @@ const tierShineColors = {
   gold: '#FFD700',
   silver: '#dededeff',
   community: '#f17575ff',
-  referral: '#f17575ff'
+  referral: '#f17575ff',
+  ecosystem: '#f17575ff'
 };
 
 const createParticleElement = (x, y, color = DEFAULT_GLOW_COLOR) => {
@@ -718,10 +724,10 @@ const Sponsors = ({
         </h2>
 
         <div className="card-responsive flex flex-col items-center">
-          {['platinum', 'referral','community'].map((tier) => (
+          {['platinum', 'referral', 'community', 'ecosystem'].map((tier) => (
             <div key={tier} className="w-full flex flex-col items-center gap-8 mb-8 reveal-container reveal-early">
               <ShinyText
-                text={tier === 'community' ? 'Community Partners' : tier === 'referral' ? 'Referral Partner' : tier.charAt(0).toUpperCase() + tier.slice(1)}
+                text={tier === 'community' ? 'Community Partners' : tier === 'referral' ? 'Referral Partner' : tier === 'ecosystem' ? 'Eco System Partner' : tier.charAt(0).toUpperCase() + tier.slice(1)}
                 disabled={false}
                 speed={3}
                 className="text-2xl md:text-2xl font-bold uppercase tracking-widest font-['PPMori'] opacity-90"
