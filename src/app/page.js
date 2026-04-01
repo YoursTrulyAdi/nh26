@@ -7,6 +7,7 @@ import ContactUs from '../components/ContactUs';
 import Prizes from '../components/Prizes';
 import InfiniteSlider from '@/components/ui/InfiniteSlider';
 import Sponsors from '@/components/Sponsors';
+import Sponsors2 from '@/components/Sponsors2';
 import Faqs from '@/components/Faqs';
 import Teams from '@/components/Teams';
 import Teams2 from '@/components/Teams2';
@@ -59,6 +60,10 @@ const Home = () => {
           particleCount={12}
         />
       </section>
+
+      {/* <section id="sponsors2">
+        <Sponsors2 />
+      </section> */}
 
       <section id="brochure">
         <Brochure />

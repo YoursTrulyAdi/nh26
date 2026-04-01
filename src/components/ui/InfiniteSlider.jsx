@@ -117,6 +117,7 @@ const InfiniteSlider = () => {
   const [activeCard, setActiveCard] = useState(null); // { rowIndex, cardIndex }
   const [selectedImage, setSelectedImage] = useState(null);
   const [isDesktop, setIsDesktop] = useState(false);
+  const [isModalActive, setIsModalActive] = useState(false);
 
   React.useEffect(() => {
     const checkDesktop = () => setIsDesktop(window.innerWidth >= 768);
@@ -159,9 +160,12 @@ const InfiniteSlider = () => {
     if (selectedImage) {
       document.body.style.overflow = 'hidden';
       if (window.lenis) window.lenis.stop();
+      setIsModalActive(true);
     } else {
       document.body.style.overflow = 'unset';
       if (window.lenis) window.lenis.start();
+      const timer = setTimeout(() => setIsModalActive(false), 300);
+      return () => clearTimeout(timer);
     }
     return () => {
       document.body.style.overflow = 'unset';
@@ -170,7 +174,7 @@ const InfiniteSlider = () => {
   }, [selectedImage]);
 
   return (
-    <div className="w-full flex flex-col gap-8 py-10 bg-[#010524ff] relative z-10 overflow-hidden">
+    <div className={`w-full flex flex-col gap-8 py-10 bg-[#010524ff] relative overflow-hidden ${isModalActive ? 'z-[9999]' : 'z-10'}`}>
       <Starfield />
       <div className="absolute inset-0 bg-gradient-to-b from-[#010524ff] via-transparent to-[#010524ff] z-0 pointer-events-none opacity-80"></div>
       <div className="reveal relative z-10">
