@@ -6,7 +6,7 @@ import Image from 'next/image';
 import ShinyText from "../subcomponents/ShinyText";
 import Starfield from './ui/Starfield';
 
-const DEFAULT_PARTICLE_COUNT = 12;
+const DEFAULT_PARTICLE_COUNT = 3;
 const DEFAULT_SPOTLIGHT_RADIUS = 300;
 const DEFAULT_GLOW_COLOR = '0, 0, 0';
 const MOBILE_BREAKPOINT = 768;
@@ -14,6 +14,7 @@ const MOBILE_BREAKPOINT = 768;
 const sponsorsData = {
   platinum: [
     { title: 'YellowHillsAI', image: '/assets/yellowhillsai.png', link: 'https://yellowhills.ai/' },
+    { title: 'HackCulture', image: '/assets/HackCulture.png', link: 'https://hackculture.in/' }
     // { title: 'Coming Soon!' }
   ],
   // gold: Array(2).fill({ title: 'Coming Soon!' }),
@@ -29,6 +30,10 @@ const sponsorsData = {
   ],
   ecosystem: [
     { title: 'The OS Code', image: '/assets/OSCode Logo.png', alt: 'OS Code LOGO' }
+  ],
+  kind: [
+    { title: 'n8n', image: '/assets/n8n_pink+white_logo.png', alt: 'n8n LOGO' },
+    { title: '.xyz', image: '/assets/xyz-logo-white.png', alt: '.xyz LOGO' }
   ]
 };
 
@@ -38,7 +43,8 @@ const tierColors = {
   silver: '192, 192, 192',    // #C0C0C0
   community: '255, 0, 0',    // #ff0000 (red)
   referral: '255, 0, 0',
-  ecosystem: '255, 0, 0'
+  ecosystem: '255, 0, 0',
+  kind: '255, 0, 0'
 };
 
 const tierHexColors = {
@@ -47,7 +53,8 @@ const tierHexColors = {
   silver: '#b5b5b5',
   community: '#b5b5b5',
   referral: '#b5b5b5',
-  ecosystem: '#b5b5b5'
+  ecosystem: '#b5b5b5',
+  kind: '#b5b5b5'
 };
 
 const tierShineColors = {
@@ -56,7 +63,8 @@ const tierShineColors = {
   silver: '#dededeff',
   community: '#f17575ff',
   referral: '#f17575ff',
-  ecosystem: '#f17575ff'
+  ecosystem: '#f17575ff',
+  kind: '#f17575ff'
 };
 
 const createParticleElement = (x, y, color = DEFAULT_GLOW_COLOR) => {
@@ -104,7 +112,8 @@ const ParticleCard = ({
   clickEffect = false,
   enableMagnetism = false,
   forceHover = false,
-  href
+  href,
+  overflowHidden = true
 }) => {
   const cardRef = useRef(null);
   const particlesRef = useRef([]);
@@ -343,8 +352,8 @@ const ParticleCard = ({
       href={href}
       target={href ? '_blank' : undefined}
       rel={href ? 'noopener noreferrer' : undefined}
-      className={`${className} relative overflow-hidden`}
-      style={{ ...style, position: 'relative', overflow: 'hidden' }}
+      className={`${className} relative ${overflowHidden ? 'overflow-hidden' : ''}`}
+      style={{ ...style, position: 'relative', overflow: overflowHidden ? 'hidden' : 'visible' }}
     >
       {children}
     </Component>
@@ -485,7 +494,7 @@ const GlobalSpotlight = ({
 
 const BentoCardGrid = ({ children, gridRef, className = "" }) => (
   <div
-    className={`bento-section grid gap-2 p-3 max-w-[54rem] select-none relative mx-auto ${className}`}
+    className={`bento-section flex flex-col gap-2 p-3 w-full max-w-[1400px] select-none relative mx-auto ${className}`}
     style={{ fontSize: 'clamp(1rem, 0.9rem + 0.5vw, 1.5rem)' }}
     ref={gridRef}
   >
@@ -511,7 +520,7 @@ const useMobileDetection = () => {
 const Sponsors = ({
   textAutoHide = true,
   enableStars = true,
-  enableSpotlight = true,
+  enableSpotlight = false,
   enableBorderGlow = true,
   disableAnimations = false,
   spotlightRadius = DEFAULT_SPOTLIGHT_RADIUS,
@@ -550,7 +559,7 @@ const Sponsors = ({
 
           /* Default card style with tier-colored border */
           .card {
-            border-color: rgba(var(--tier-glow), 0.7) !important;
+            border-color: rgba(var(--tier-glow), 1) !important;
           }
 
           /* Hover state */
@@ -572,7 +581,7 @@ const Sponsors = ({
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 1.5rem;
+            gap: 2rem;
             width: 100%;
           }
           
@@ -594,7 +603,7 @@ const Sponsors = ({
              .card {
                  width: 220px; 
                  height: 220px;
-                 border-color: #808080 !important;
+                 border-color: rgba(var(--tier-glow), 1) !important;
                  border-width: 2px !important;
              }
              .card:hover {
@@ -603,12 +612,12 @@ const Sponsors = ({
 
              .tier-row {
                  width: 100%; 
-                 max-width: 1200px; 
+                 max-width: 1300px; 
                  margin: 0 auto;
                  display: flex;
                  flex-wrap: wrap;
                  justify-content: center;
-                 gap: 2rem;
+                 gap: 3rem;
              }
           }
 
@@ -616,7 +625,7 @@ const Sponsors = ({
              .tier-row {
                 flex-direction: column;
                 align-items: center;
-                gap: 1.5rem;
+                gap: 2rem;
              }
              
              /* Remove inner border glow on mobile */
@@ -661,6 +670,10 @@ const Sponsors = ({
             opacity: 1;
           }
           
+          .card--border-glow {
+            box-shadow: 0 4px 20px rgba(46, 24, 78, 0.4), 0 0 30px rgba(var(--tier-glow), 0.2);
+          }
+
           .card--border-glow:hover {
             box-shadow: 0 4px 20px rgba(46, 24, 78, 0.4), 0 0 30px rgba(var(--tier-glow), 0.2);
           }
@@ -722,108 +735,145 @@ const Sponsors = ({
         {/* Title inside Grid for perfect alignment */}
         <h2 className="text-3xl md:text-5xl font-bold text-center text-[#f17575ff] mb-8 z-30 relative font-['PPMori'] tracking-tight pt-4 w-full">
           <span className="relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-[#f17575ff] after:transition-all after:duration-300 hover:after:w-full">
-            Sponsors
+            Our Sponsors
           </span>
         </h2>
 
-        <div className="card-responsive flex flex-col items-center">
-          {['platinum', 'referral', 'community', 'ecosystem'].map((tier) => (
-            <div key={tier} className="w-full flex flex-col items-center gap-8 mb-8 reveal-container reveal-early">
-              <ShinyText
-                text={tier === 'community' ? 'Community Partners' : tier === 'referral' ? 'Referral Partner' : tier === 'ecosystem' ? 'EcoSystem Partner' : tier.charAt(0).toUpperCase() + tier.slice(1)}
-                disabled={false}
-                speed={3}
-                className="text-2xl md:text-2xl font-bold uppercase tracking-widest font-['PPMori'] opacity-90"
-                color={tierHexColors[tier]}
-                shineColor={tierShineColors[tier]}
-              />
-              <div className="tier-row w-full px-4">
-                {sponsorsData[tier].map((item, index) => {
-                  const tierColor = tierColors[tier] || glowColor;
+        <div className="card-responsive">
+          <div className="tier-row w-full px-4 mb-16 reveal-container reveal-early">
+            {['platinum', 'referral', 'community', 'ecosystem', 'kind'].flatMap((tier) =>
+              sponsorsData[tier].map((item, index) => {
+                const tierColor = tierColors[tier] || glowColor;
 
-                  const baseClassName = `card flex flex-col items-center justify-center relative rounded-[20px] border-2 border-solid font-light overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${enableBorderGlow ? 'card--border-glow' : ''
-                    } ${item.link ? 'cursor-pointer' : ''}`;
+                const baseClassName = `card flex flex-col items-center justify-center relative rounded-[20px] border-2 border-solid font-light overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${enableBorderGlow ? 'card--border-glow' : ''
+                  } ${item.link ? 'cursor-pointer' : ''}`;
 
-                  const cardStyle = {
-                    backgroundColor: 'var(--background-dark)', // Keep dark background for contrast
-                    borderColor: 'var(--border-color)', // Fallback, but CSS !important overrides this mostly
-                    color: 'var(--white)',
-                    '--glow-x': '50%',
-                    '--glow-y': '50%',
-                    '--glow-intensity': isMobile ? '0.8' : '0', // Force glow intensity on mobile
-                    '--glow-radius': '200px',
-                    '--tier-glow': tierColor // Dynamic CSS variable for this card
-                  };
+                const cardStyle = {
+                  backgroundColor: 'var(--background-dark)', // Keep dark background for contrast
+                  borderColor: 'var(--border-color)', // Fallback, but CSS !important overrides this mostly
+                  color: 'var(--white)',
+                  '--glow-x': '50%',
+                  '--glow-y': '50%',
+                  '--glow-intensity': '1', // Force glow intensity to be always active
+                  '--glow-radius': '200px',
+                  '--tier-glow': tierColor // Dynamic CSS variable for this card
+                };
 
-                  if (enableStars) {
-                    return (
-                      <ParticleCard
-                        key={`${tier}-${index}-${tierColor}`} // Force re-render if color changes
-                        className={`${baseClassName} reveal-item`}
-                        style={cardStyle}
-                        disableAnimations={shouldDisableAnimations}
-                        particleCount={particleCount}
-                        glowColor={tierColor}
-                        enableTilt={!isMobile && enableTilt} // Disable tilt on mobile
-                        clickEffect={clickEffect}
-                        enableMagnetism={enableMagnetism}
-                        forceHover={isMobile} // Force hover particles on mobile
-                        href={item.link}
-                      >
-                        <div className="card__content flex flex-col items-center justify-center relative text-white h-full z-10 p-4 text-center w-full">
-                          {item.image ? (
-                            <div className="relative w-full h-full flex items-center justify-center p-4">
-                              {item.title === "Devfolio" ? (
-                                <img
-                                  src="/assets/Devfolio.png"
-                                  alt="DEVFOLIO LOGO"
-                                  className="object-contain"
-                                />
-                              ) : (
-                                <Image
-                                  src={item.image}
-                                  alt={item.alt || item.title}
-                                  fill
-                                  className="object-contain p-4"
-                                />
-                              )}
-                            </div>
-                          ) : (
-                            <h3 className={`font-bold text-lg md:text-xl text-white/90 ${textAutoHide ? 'text-clamp-2' : ''}`}>
-                              {item.title}
-                            </h3>
-                          )}
-                        </div>
-                      </ParticleCard>
-                    );
-                  }
+                const isRedTier = ['community', 'referral', 'ecosystem', 'kind'].includes(tier);
+                const isPlatinumTier = tier === 'platinum';
 
+                let badgeElement = null;
+                if (isRedTier) {
+                  let badgeText = 'Community Partner';
+                  if (tier === 'referral') badgeText = 'Referral Partner';
+                  if (tier === 'ecosystem') badgeText = 'Ecosystem Partner';
+                  if (tier === 'kind') badgeText = 'Kind Sponsor';
+
+                  badgeElement = (
+                    <div 
+                      className="absolute top-[32px] left-[-45px] w-[180px] z-20 py-[4px] transform -rotate-45 text-[8.5px] font-bold uppercase tracking-widest text-center pointer-events-none"
+                      style={{
+                        backgroundColor: 'rgba(var(--tier-glow), 1)',
+                        color: 'white',
+                        boxShadow: '0 0 10px rgba(var(--tier-glow), 0.5)'
+                      }}
+                    >
+                      {badgeText}
+                    </div>
+                  );
+                } else if (isPlatinumTier) {
+                  badgeElement = (
+                    <div 
+                      className="absolute top-[32px] left-[-45px] w-[180px] z-20 py-[4px] transform -rotate-45 text-[8.5px] font-bold uppercase tracking-widest text-center pointer-events-none"
+                      style={{
+                        backgroundColor: 'rgba(var(--tier-glow), 1)',
+                        color: 'black',
+                        boxShadow: '0 0 10px rgba(var(--tier-glow), 0.5)'
+                      }}
+                    >
+                      Platinum Sponsor
+                    </div>
+                  );
+                }
+
+                if (enableStars) {
                   return (
-                    <div
-                      key={`${tier}-${index}`}
+                    <ParticleCard
+                      key={`${tier}-${index}-${tierColor}`} // Force re-render if color changes
                       className={`${baseClassName} reveal-item`}
                       style={cardStyle}
+                      disableAnimations={shouldDisableAnimations}
+                      particleCount={particleCount}
+                      glowColor={tierColor}
+                      enableTilt={!isMobile && enableTilt} // Disable tilt on mobile
+                      clickEffect={clickEffect}
+                      enableMagnetism={enableMagnetism}
+                      forceHover={true} // Force hover particles always
+                      href={item.link}
                     >
+                      {badgeElement}
                       <div className="card__content flex flex-col items-center justify-center relative text-white h-full z-10 p-4 text-center w-full">
                         {item.image ? (
-                          <div className="relative w-full h-full flex items-center justify-center p-4">
+                          <div className="relative w-full h-full flex items-center justify-center p-1">
+                            {item.title === "Devfolio" ? (
+                              <img
+                                src="/assets/Devfolio.png"
+                                alt="DEVFOLIO LOGO"
+                                className="object-contain"
+                              />
+                            ) : (
+                              <Image
+                                src={item.image}
+                                alt={item.alt || item.title}
+                                fill
+                                className={`object-contain ${item.title === 'Dev Army' ? 'p-10' : item.title === 'HackCulture' ? 'p-0 scale-[1.2]' : 'p-4'}`}
+                              />
+                            )}
+                          </div>
+                        ) : (
+                          <h3 className={`font-bold text-lg md:text-xl text-white/90 ${textAutoHide ? 'text-clamp-2' : ''}`}>
+                            {item.title}
+                          </h3>
+                        )}
+                      </div>
+                    </ParticleCard>
+                  );
+                }
+
+                return (
+                  <div
+                    key={`${tier}-${index}`}
+                    className={`${baseClassName} reveal-item`}
+                    style={cardStyle}
+                  >
+                    {badgeElement}
+                    <div className="card__content flex flex-col items-center justify-center relative text-white h-full z-10 p-4 text-center w-full">
+                      {item.image ? (
+                        <div className="relative w-full h-full flex items-center justify-center p-4">
+                          {item.title === "Devfolio" ? (
+                            <img
+                              src="/assets/Devfolio.png"
+                              alt="DEVFOLIO LOGO"
+                              className="object-contain"
+                            />
+                          ) : (
                             <Image
                               src={item.image}
                               alt={item.alt || item.title}
                               fill
-                              className="object-contain p-4"
+                              className={`object-contain ${item.title === 'Dev Army' ? 'p-10' : item.title === 'HackCulture' ? 'p-0 scale-[1.5]' : 'p-4'}`}
                             />
-                          </div>
-                        ) : (
-                          <h3 className="font-bold text-lg">{item.title}</h3>
-                        )}
-                      </div>
+                          )}
+                        </div>
+                      ) : (
+                        <h3 className="font-bold text-lg">{item.title}</h3>
+                      )}
                     </div>
-                  );
-                })}
-              </div>
-            </div>
-          ))}
+                  </div>
+                );
+              })
+            )}
+          </div>
         </div>
       </BentoCardGrid>
     </section>
