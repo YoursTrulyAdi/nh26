@@ -612,12 +612,14 @@ const Sponsors = ({
 
              .tier-row {
                  width: 100%; 
-                 max-width: 1300px; 
+                 max-width: 1200px; 
                  margin: 0 auto;
-                 display: flex;
-                 flex-wrap: wrap;
-                 justify-content: center;
-                 gap: 3rem;
+                 display: grid;
+                 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                 justify-items: center;
+                 align-items: stretch;
+                 gap: 2.5rem;
+                 padding: 0 1rem;
              }
           }
 
@@ -718,6 +720,142 @@ const Sponsors = ({
               padding: 0.5rem;
             }
           }
+
+          /* New Sponsor Card Styles */
+          .sponsor-card-v2 {
+            width: 280px; /* Forced fixed width for all cards */
+            height: 310px; /* Forced fixed height for all cards */
+            display: flex;
+            flex-direction: column;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+            transition: transform 0.3s ease;
+            margin: 0 auto;
+          }
+          
+          .sponsor-card-v2:hover {
+            transform: translateY(-10px);
+          }
+
+          .logo-box {
+            background: rgba(35, 49, 153, 0.4); /* Glassy Deep Blue-Purple */
+            height: 200px; /* Increased height */
+            border-radius: 20px 20px 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem 2rem;
+            position: relative;
+            z-index: 10;
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: none;
+            overflow: hidden; /* Important for shimmer effect */
+          }
+
+          .logo-box::after {
+            content: "";
+            position: absolute;
+            bottom: -50%;
+            left: -150%;
+            width: 80px;
+            height: 200%;
+            background: linear-gradient(
+              to right,
+              transparent,
+              rgba(var(--tier-accent-rgb), 0.05) 30%,
+              rgba(var(--tier-accent-rgb), 0.35) 50%,
+              rgba(var(--tier-accent-rgb), 0.05) 70%,
+              transparent 100%
+            );
+            transform: rotate(25deg);
+            animation: shimmer 5s infinite ease-in-out; /* Reduced speed */
+            pointer-events: none;
+            z-index: 1;
+          }
+
+          @keyframes shimmer {
+            0% { left: -150%; }
+            40% { left: 150%; }
+            100% { left: 150%; }
+          }
+
+          .banner-box {
+            background: #ff0000; /* Pure Red Banner */
+            height: 110px; /* Increased height */
+            border-radius: 0 0 20px 20px;
+            position: relative;
+            padding: 0.9rem 1.1rem; /* Extremely compact vertical padding */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            backdrop-filter: blur(30px);
+            overflow: hidden;
+            border: 2px solid var(--tier-accent); /* Full 4-sided border restored */
+            z-index: 20; /* Higher z-index to cast shadow upward over logo box */
+            box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.5); /* Upward shadow */
+          }
+
+          .ribbon-tag {
+            position: absolute;
+            right: -45px;
+            bottom: 12px;
+            width: 150px;
+            height: 10px;
+            background: var(--tier-accent);
+            transform: rotate(-45deg);
+            z-index: 1;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+          }
+
+          .ribbon-tag.secondary {
+            bottom: 35px;
+            opacity: 0.8;
+          }
+
+          .sponsor-name {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 800;
+            z-index: 2;
+            margin-bottom: 0.25rem;
+          }
+
+          .sponsor-tier {
+            color: white;
+            font-size: 1rem;
+            font-weight: 700;
+            z-index: 2;
+            opacity: 1;
+          }
+
+          @media (max-width: 1024px) {
+            .tier-row {
+              grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+              gap: 2rem;
+            }
+          }
+
+          @media (max-width: 768px) {
+            .tier-row {
+              grid-template-columns: 1fr;
+              gap: 2rem;
+              padding: 0 1rem;
+            }
+            .sponsor-card-v2 {
+              width: 280px !important; /* Force EXACT same width on mobile */
+              height: 310px !important; /* Force EXACT same height on mobile */
+            }
+            .logo-box { height: 200px !important; }
+            .banner-box { height: 110px !important; }
+          }
+          
+          @media (max-width: 360px) {
+            .sponsor-card-v2 {
+              width: 260px !important; /* Slightly smaller for very thin devices */
+            }
+            .sponsor-name { font-size: 1.25rem; }
+            .sponsor-tier { font-size: 0.9rem; }
+          }
         `}
       </style>
 
@@ -740,135 +878,78 @@ const Sponsors = ({
         </h2>
 
         <div className="card-responsive">
-          <div className="tier-row w-full px-4 mb-16 reveal-container reveal-early">
-            {['platinum', 'referral', 'community', 'ecosystem', 'kind'].flatMap((tier) =>
+          <div className="tier-row w-full px-4 mb-24 reveal-container reveal-early">
+            {['platinum', 'community', 'referral', 'ecosystem', 'kind'].flatMap((tier) =>
               sponsorsData[tier].map((item, index) => {
-                const tierColor = tierColors[tier] || glowColor;
+                const isSpecial = ['YellowHillsAI', 'HackCulture'].includes(item.title);
+                const accentColor = isSpecial ? '#E5E4E2' : '#FFD700'; // Platinum vs Gold
+                
+                const tierLabel = tier === 'platinum' ? 'Platinum Sponsor' : 
+                                 tier === 'referral' ? 'Referral Partner' :
+                                 tier === 'community' ? 'Community Partner' :
+                                 tier === 'ecosystem' ? 'Ecosystem Partner' : 'Kind Sponsor';
 
-                const baseClassName = `card flex flex-col items-center justify-center relative rounded-[20px] border-2 border-solid font-light overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${enableBorderGlow ? 'card--border-glow' : ''
-                  } ${item.link ? 'cursor-pointer' : ''}`;
-
-                const cardStyle = {
-                  backgroundColor: 'var(--background-dark)', // Keep dark background for contrast
-                  borderColor: 'var(--border-color)', // Fallback, but CSS !important overrides this mostly
-                  color: 'var(--white)',
-                  '--glow-x': '50%',
-                  '--glow-y': '50%',
-                  '--glow-intensity': '1', // Force glow intensity to be always active
-                  '--glow-radius': '200px',
-                  '--tier-glow': tierColor // Dynamic CSS variable for this card
-                };
-
-                const isRedTier = ['community', 'referral', 'ecosystem', 'kind'].includes(tier);
-                const isPlatinumTier = tier === 'platinum';
-
-                let badgeElement = null;
-                if (isRedTier) {
-                  let badgeText = 'Community Partner';
-                  if (tier === 'referral') badgeText = 'Referral Partner';
-                  if (tier === 'ecosystem') badgeText = 'Ecosystem Partner';
-                  if (tier === 'kind') badgeText = 'Kind Sponsor';
-
-                  badgeElement = (
-                    <div 
-                      className="absolute top-[32px] left-[-45px] w-[180px] z-20 py-[4px] transform -rotate-45 text-[8.5px] font-bold uppercase tracking-widest text-center pointer-events-none"
-                      style={{
-                        backgroundColor: 'rgba(var(--tier-glow), 1)',
-                        color: 'white',
-                        boxShadow: '0 0 10px rgba(var(--tier-glow), 0.5)'
-                      }}
-                    >
-                      {badgeText}
-                    </div>
-                  );
-                } else if (isPlatinumTier) {
-                  badgeElement = (
-                    <div 
-                      className="absolute top-[32px] left-[-45px] w-[180px] z-20 py-[4px] transform -rotate-45 text-[8.5px] font-bold uppercase tracking-widest text-center pointer-events-none"
-                      style={{
-                        backgroundColor: 'rgba(var(--tier-glow), 1)',
-                        color: 'black',
-                        boxShadow: '0 0 10px rgba(var(--tier-glow), 0.5)'
-                      }}
-                    >
-                      Platinum Sponsor
-                    </div>
-                  );
-                }
-
-                if (enableStars) {
-                  return (
-                    <ParticleCard
-                      key={`${tier}-${index}-${tierColor}`} // Force re-render if color changes
-                      className={`${baseClassName} reveal-item`}
-                      style={cardStyle}
-                      disableAnimations={shouldDisableAnimations}
-                      particleCount={particleCount}
-                      glowColor={tierColor}
-                      enableTilt={!isMobile && enableTilt} // Disable tilt on mobile
-                      clickEffect={clickEffect}
-                      enableMagnetism={enableMagnetism}
-                      forceHover={true} // Force hover particles always
-                      href={item.link}
-                    >
-                      {badgeElement}
-                      <div className="card__content flex flex-col items-center justify-center relative text-white h-full z-10 p-4 text-center w-full">
+                const accentColorRgb = isSpecial ? '229, 228, 226' : '255, 215, 0'; // RGB for Platinum and Gold
+                
+                const cardContent = (
+                  <div className="sponsor-card-v2" style={{ '--tier-accent': accentColor, '--tier-accent-rgb': accentColorRgb }}>
+                    <div className="logo-box">
+                      <div className="relative w-full h-full flex items-center justify-center">
                         {item.image ? (
-                          <div className="relative w-full h-full flex items-center justify-center p-1">
-                            {item.title === "Devfolio" ? (
-                              <img
-                                src="/assets/Devfolio.png"
-                                alt="DEVFOLIO LOGO"
-                                className="object-contain"
-                              />
-                            ) : (
-                              <Image
-                                src={item.image}
-                                alt={item.alt || item.title}
-                                fill
-                                className={`object-contain ${item.title === 'Dev Army' ? 'p-10' : item.title === 'HackCulture' ? 'p-0 scale-[1.2]' : 'p-4'}`}
-                              />
-                            )}
-                          </div>
-                        ) : (
-                          <h3 className={`font-bold text-lg md:text-xl text-white/90 ${textAutoHide ? 'text-clamp-2' : ''}`}>
-                            {item.title}
-                          </h3>
-                        )}
-                      </div>
-                    </ParticleCard>
-                  );
-                }
-
-                return (
-                  <div
-                    key={`${tier}-${index}`}
-                    className={`${baseClassName} reveal-item`}
-                    style={cardStyle}
-                  >
-                    {badgeElement}
-                    <div className="card__content flex flex-col items-center justify-center relative text-white h-full z-10 p-4 text-center w-full">
-                      {item.image ? (
-                        <div className="relative w-full h-full flex items-center justify-center p-4">
-                          {item.title === "Devfolio" ? (
+                           item.title === "Devfolio" ? (
                             <img
                               src="/assets/Devfolio.png"
                               alt="DEVFOLIO LOGO"
-                              className="object-contain"
+                              className="object-contain max-h-[100px]"
                             />
                           ) : (
                             <Image
                               src={item.image}
                               alt={item.alt || item.title}
                               fill
-                              className={`object-contain ${item.title === 'Dev Army' ? 'p-10' : item.title === 'HackCulture' ? 'p-0 scale-[1.5]' : 'p-4'}`}
+                              className="object-contain p-4"
                             />
-                          )}
-                        </div>
-                      ) : (
-                        <h3 className="font-bold text-lg">{item.title}</h3>
-                      )}
+                          )
+                        ) : (
+                          <h3 className="font-bold text-2xl text-white">{item.title}</h3>
+                        )}
+                      </div>
                     </div>
+                    <div className="banner-box">
+                      <div className="ribbon-tag"></div>
+                      <div className="ribbon-tag secondary"></div>
+                      <h3 className="sponsor-name">{item.title}</h3>
+                      <p className="sponsor-tier">{tierLabel}</p>
+                    </div>
+                  </div>
+                );
+
+                if (enableStars) {
+                  return (
+                    <ParticleCard
+                      key={`${tier}-${index}`}
+                      className="reveal-item"
+                      disableAnimations={shouldDisableAnimations}
+                      particleCount={particleCount}
+                      glowColor={accentColor}
+                      enableTilt={!isMobile && enableTilt}
+                      clickEffect={clickEffect}
+                      enableMagnetism={enableMagnetism}
+                      overflowHidden={false}
+                      href={item.link}
+                    >
+                      {cardContent}
+                    </ParticleCard>
+                  );
+                }
+
+                return (
+                  <div key={`${tier}-${index}`} className="reveal-item">
+                    {item.link ? (
+                      <a href={item.link} target="_blank" rel="noopener noreferrer">
+                        {cardContent}
+                      </a>
+                    ) : cardContent}
                   </div>
                 );
               })
