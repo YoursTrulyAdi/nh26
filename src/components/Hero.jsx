@@ -82,6 +82,20 @@ const Hero = () => {
             />
           </div>
 
+          {/* Powered by GitHub - Title Sponsor */}
+          <div className="flex items-center gap-3 reveal-item mb-4 opacity-90 group transition-all duration-300 hover:opacity-100">
+            <span className="text-white/70 text-sm md:text-lg font-['PPMori'] tracking-wide">
+              Powered by
+            </span>
+            <div className="bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-xl border border-white/10 flex items-center shadow-2xl transition-all duration-300 group-hover:bg-white/20 group-hover:border-white/20">
+              <img 
+                src="/assets/GitHub.png" 
+                alt="GitHub" 
+                className="h-5 md:h-7 w-auto object-contain" 
+              />
+            </div>
+          </div>
+
 
 
 
