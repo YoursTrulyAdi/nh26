@@ -16,23 +16,23 @@ const sponsorsData = {
     { title: 'GitHub', image: '/assets/GitHub.png', link: 'https://github.com/' }
   ],
   platinum: [
-    { title: 'YellowHillsAI', image: '/assets/yellowhillsai.png', link: 'https://yellowhills.ai/' },
+    { title: 'Yellow Hills AI', image: '/assets/yellowhillsai.png', link: 'https://yellowhills.ai/' },
     { title: 'HackCulture', image: '/assets/HackCulture.png', link: 'https://hackculture.in/' }
     // { title: 'Coming Soon!' }
   ],
   // gold: Array(2).fill({ title: 'Coming Soon!' }),
   // silver: Array(4).fill({ title: 'Coming Soon!' }),
   referral: [
-    { title: 'Hul-Chul', image: '/assets/HulChul cropped 2.png', link: 'https://hulchul.in/', alt: 'Hul-Chul LOGO' }
+    { title: 'HulChul', image: '/assets/HulChul cropped 2.png', link: 'https://hulchul.in/', alt: 'Hul-Chul LOGO' }
   ],
   community: [
     { title: 'Devfolio', image: '/assets/Devfolio.png', link: 'https://devfolio.co/', alt: 'DEVFOLIO LOGO' },
     { title: 'Major League Hacking', image: '/assets/mlh-logo-white.png', link: 'https://mlh.io/', alt: 'MLH LOGO' },
-    { title: 'Dev Army', image: '/assets/devArmyLogo.png',link: 'https://thedevarmy.com/', alt: 'DEV ARMY LOGO' },
+    { title: 'theDevArmy', image: '/assets/devArmyLogo.png',link: 'https://thedevarmy.com/', alt: 'DEV ARMY LOGO' },
     // { title: 'Coming Soon!' }
   ],
   ecosystem: [
-    { title: 'The OS Code', image: '/assets/OSCode Logo.png', alt: 'OS Code LOGO' }
+    { title: 'OSCode', image: '/assets/OSCode Logo.png', alt: 'OS Code LOGO' }
   ],
   kind: [
     { title: 'n8n', image: '/assets/n8n_pink+white_logo.png', alt: 'n8n LOGO' },
@@ -891,7 +891,7 @@ const Sponsors = ({
                                  tier === 'platinum' ? 'Platinum Sponsor' : 
                                  tier === 'referral' ? 'Referral Partner' :
                                  tier === 'community' ? 'Community Partner' :
-                                 tier === 'ecosystem' ? 'Ecosystem Partner' : 'Kind Sponsor';
+                                 tier === 'ecosystem' ? 'Ecosystem Partner' : 'In-kind Sponsor';
 
                 const accentColorRgb = isTitle ? '255, 0, 0' : (tier === 'platinum' ? '229, 228, 226' : '255, 215, 0'); // RGB for Title, Platinum, and Gold
                 
