@@ -12,6 +12,9 @@ const DEFAULT_GLOW_COLOR = '0, 0, 0';
 const MOBILE_BREAKPOINT = 768;
 
 const sponsorsData = {
+  title: [
+    { title: 'GitHub', image: '/assets/GitHub.png', link: 'https://github.com/' }
+  ],
   platinum: [
     { title: 'YellowHillsAI', image: '/assets/yellowhillsai.png', link: 'https://yellowhills.ai/' },
     { title: 'HackCulture', image: '/assets/HackCulture.png', link: 'https://hackculture.in/' }
@@ -879,17 +882,18 @@ const Sponsors = ({
 
         <div className="card-responsive">
           <div className="tier-row w-full px-4 mb-24 reveal-container reveal-early">
-            {['platinum', 'community', 'referral', 'ecosystem', 'kind'].flatMap((tier) =>
+            {['title', 'platinum', 'community', 'referral', 'ecosystem', 'kind'].flatMap((tier) =>
               sponsorsData[tier].map((item, index) => {
-                const isSpecial = ['YellowHillsAI', 'HackCulture'].includes(item.title);
-                const accentColor = isSpecial ? '#E5E4E2' : '#FFD700'; // Platinum vs Gold
+                const isTitle = tier === 'title';
+                const accentColor = (isTitle || tier === 'platinum') ? '#E5E4E2' : '#FFD700'; // Platinum/White for Title & Platinum, Gold for others
                 
-                const tierLabel = tier === 'platinum' ? 'Platinum Sponsor' : 
+                const tierLabel = tier === 'title' ? 'Title Sponsor' :
+                                 tier === 'platinum' ? 'Platinum Sponsor' : 
                                  tier === 'referral' ? 'Referral Partner' :
                                  tier === 'community' ? 'Community Partner' :
                                  tier === 'ecosystem' ? 'Ecosystem Partner' : 'Kind Sponsor';
 
-                const accentColorRgb = isSpecial ? '229, 228, 226' : '255, 215, 0'; // RGB for Platinum and Gold
+                const accentColorRgb = isTitle ? '255, 0, 0' : (tier === 'platinum' ? '229, 228, 226' : '255, 215, 0'); // RGB for Title, Platinum, and Gold
                 
                 const cardContent = (
                   <div className="sponsor-card-v2" style={{ '--tier-accent': accentColor, '--tier-accent-rgb': accentColorRgb }}>
@@ -931,7 +935,7 @@ const Sponsors = ({
                       className="reveal-item"
                       disableAnimations={shouldDisableAnimations}
                       particleCount={particleCount}
-                      glowColor={accentColor}
+                      glowColor={accentColorRgb}
                       enableTilt={!isMobile && enableTilt}
                       clickEffect={clickEffect}
                       enableMagnetism={enableMagnetism}
