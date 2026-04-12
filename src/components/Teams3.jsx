@@ -488,7 +488,7 @@ const Teams3 = () => {
           <motion.button
             key={index}
             onClick={() => setSelectedDept(index)}
-            className={`px-5 md:px-7 py-2.5 md:py-3 rounded-full font-['PPMori'] text-sm md:text-base font-medium transition-all duration-300 ${
+            className={`px-5 md:px-7 py-2.5 md:py-3 rounded-full font-['PPMori'] text-sm md:text-base font-medium transition-all duration-300 cursor-pointer ${
               selectedDept === index
                 ? 'bg-[#ff0000]/20 text-white backdrop-blur-sm border border-[#ff0000]/60 shadow-lg shadow-[#ff0000]/40'
                 : 'bg-[#ff0000]/5 text-white/70 backdrop-blur-sm border border-[#ff0000]/30 hover:bg-[#ff0000]/15 hover:text-white hover:border-[#ff0000]/50'
