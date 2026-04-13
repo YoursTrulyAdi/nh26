@@ -14,6 +14,7 @@ import Teams2 from '@/components/Teams2';
 import Tracks2 from '@/components/Tracks2';
 import Tracks3 from '../components/Tracks3';
 import Brochure from '@/components/Brochure';
+import Teams3 from '@/components/Teams3';
 
 // --- ADD THIS DATA OBJECT ---
 const data = {
@@ -71,7 +72,7 @@ const Home = () => {
 
       {/* <Teams /> */}
       <section id="teams">
-        <Teams2/>
+        <Teams3/>
       </section>
       {/* Container to center the card so it doesn't stretch full width */}
       {/* <div className="flex justify-center py-20">
