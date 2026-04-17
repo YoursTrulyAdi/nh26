@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import Starfield from './ui/Starfield';
 
 // Social Icons
@@ -324,7 +324,7 @@ const TEAMS_DATA = [
   },
 ];
 
-const MemberCard = ({ member, onHoverStart, onHoverEnd }) => {
+const MemberCard = ({ member, index = 0, onHoverStart, onHoverEnd }) => {
   const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef(null);
 
@@ -349,15 +349,21 @@ const MemberCard = ({ member, onHoverStart, onHoverEnd }) => {
         setIsHovered(false);
         onHoverEnd?.();
       }}
+      initial={{ opacity: 0, scale: 0.95, y: 20 }}
       animate={{
+        opacity: 1,
+        scale: 1,
         y: isHovered ? -8 : 0,
         boxShadow: isHovered
           ? '0 20px 40px rgba(241, 117, 117, 0.25), 0 0 60px rgba(255, 0, 0, 0.15)'
           : '0 8px 16px rgba(0, 0, 0, 0.15)'
       }}
       transition={{
-        duration: 0.4,
-        ease: [0.22, 1, 0.36, 1]
+        duration: 0.5,
+        ease: [0.22, 1, 0.36, 1],
+        opacity: { delay: index * 0.08, duration: 0.5 },
+        scale: { delay: index * 0.08, duration: 0.5 },
+        y: isHovered ? { duration: 0.4 } : { delay: index * 0.08, duration: 0.5 }
       }}
     >
       {/* Background Image with Gradient Overlay */}
@@ -366,6 +372,7 @@ const MemberCard = ({ member, onHoverStart, onHoverEnd }) => {
           src={data.image}
           alt={data.name}
           fill
+          priority={true}
           className="object-cover"
         />
         {/* Gradient Overlay */}
@@ -502,26 +509,29 @@ const Teams3 = () => {
       </div>
 
       {/* Department Content */}
-      <div className="w-full relative z-10 mb-8">
-        <motion.div
-          key={selectedDept}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.3 }}
-          className="flex flex-col items-center"
-        >
-          <div className="flex flex-wrap justify-center gap-8 w-full px-4">
-            {TEAMS_DATA[selectedDept].members.map((member, index) => (
-              <MemberCard
-                key={index}
-                member={member}
-                onHoverStart={() => setIsPaused(true)}
-                onHoverEnd={() => setIsPaused(false)}
-              />
-            ))}
-          </div>
-        </motion.div>
+      <div className="w-full relative z-10 mb-8 min-h-[500px]">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={selectedDept}
+            initial={{ opacity: 0, filter: 'blur(10px)' }}
+            animate={{ opacity: 1, filter: 'blur(0px)' }}
+            exit={{ opacity: 0, filter: 'blur(10px)', y: -20 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-col items-center"
+          >
+            <div className="flex flex-wrap justify-center gap-8 w-full px-4">
+              {TEAMS_DATA[selectedDept].members.map((member, index) => (
+                <MemberCard
+                  key={`${selectedDept}-${index}`}
+                  index={index}
+                  member={member}
+                  onHoverStart={() => setIsPaused(true)}
+                  onHoverEnd={() => setIsPaused(false)}
+                />
+              ))}
+            </div>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );
