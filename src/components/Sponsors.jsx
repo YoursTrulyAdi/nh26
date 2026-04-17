@@ -15,28 +15,16 @@ const sponsorsData = {
   title: [
     { title: 'GitHub', image: '/assets/GitHub.png', link: 'https://github.com/' }
   ],
-  platinum: [
-    { title: 'Yellow Hills AI', image: '/assets/yellowhillsai.png', link: 'https://yellowhills.ai/' },
-    { title: 'HackCulture', image: '/assets/HackCulture.png', link: 'https://hackculture.in/' }
-    // { title: 'Coming Soon!' }
-  ],
-  // gold: Array(2).fill({ title: 'Coming Soon!' }),
-  // silver: Array(4).fill({ title: 'Coming Soon!' }),
-  referral: [
-    { title: 'HulChul', image: '/assets/HulChul cropped 2.png', link: 'https://hulchul.in/', alt: 'Hul-Chul LOGO' }
-  ],
-  community: [
-    { title: 'Devfolio', image: '/assets/Devfolio.png', link: 'https://devfolio.co/', alt: 'DEVFOLIO LOGO' },
-    { title: 'Major League Hacking', image: '/assets/mlh-logo-white.png', link: 'https://mlh.io/', alt: 'MLH LOGO' },
-    { title: 'theDevArmy', image: '/assets/devArmyLogo.png',link: 'https://thedevarmy.com/', alt: 'DEV ARMY LOGO' },
-    // { title: 'Coming Soon!' }
-  ],
-  ecosystem: [
-    { title: 'OSCode', image: '/assets/OSCode Logo.png', alt: 'OS Code LOGO' }
-  ],
-  kind: [
-    { title: 'n8n', image: '/assets/n8n_pink+white_logo.png', alt: 'n8n LOGO' },
-    { title: '.xyz', image: '/assets/xyz-logo-white.png', alt: '.xyz LOGO' }
+  others: [
+    { tier: 'platinum', title: 'Yellow Hills AI', image: '/assets/yellowhillsai.png', link: 'https://yellowhills.ai/' },
+    { tier: 'referral', title: 'HulChul', image: '/assets/HulChul cropped 2.png', link: 'https://hulchul.in/', alt: 'Hul-Chul LOGO' },
+    { tier: 'platinum', title: 'HackCulture', image: '/assets/HackCulture.png', link: 'https://hackculture.in/' },
+    { tier: 'community', title: 'Devfolio', image: '/assets/Devfolio.png', link: 'https://devfolio.co/', alt: 'DEVFOLIO LOGO' },
+    { tier: 'community', title: 'Major League Hacking', image: '/assets/mlh-logo-white.png', link: 'https://mlh.io/', alt: 'MLH LOGO' },
+    { tier: 'community', title: 'theDevArmy', image: '/assets/devArmyLogo.png',link: 'https://thedevarmy.com/', alt: 'DEV ARMY LOGO' },
+    { tier: 'ecosystem', title: 'OSCode', image: '/assets/OSCode Logo.png', alt: 'OS Code LOGO' },
+    { tier: 'kind', title: 'n8n', image: '/assets/n8n_pink+white_logo.png', alt: 'n8n LOGO' },
+    { tier: 'kind', title: '.xyz', image: '/assets/xyz-logo-white.png', alt: '.xyz LOGO' }
   ]
 };
 
@@ -859,6 +847,48 @@ const Sponsors = ({
             .sponsor-name { font-size: 1.25rem; }
             .sponsor-tier { font-size: 0.9rem; }
           }
+
+          /* Title Card Specific Styles */
+          .sponsor-card-v2.title-card {
+            width: 320px; 
+            height: 350px;
+            box-shadow: 0 0 50px rgba(255, 0, 0, 0.4);
+            border: 1px solid rgba(255, 0, 0, 0.5);
+            border-radius: 20px;
+          }
+          .sponsor-card-v2.title-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 0 70px rgba(255, 0, 0, 0.6);
+          }
+          .sponsor-card-v2.title-card .logo-box {
+            height: 220px;
+          }
+          .sponsor-card-v2.title-card .banner-box {
+            height: 130px;
+          }
+          .sponsor-card-v2.title-card .sponsor-name {
+            font-size: 2rem;
+          }
+          .sponsor-card-v2.title-card .sponsor-tier {
+            font-size: 1.15rem;
+          }
+          
+          @media (max-width: 768px) {
+            .sponsor-card-v2.title-card {
+              width: 300px !important;
+              height: 330px !important;
+            }
+            .sponsor-card-v2.title-card .logo-box { height: 210px !important; }
+            .sponsor-card-v2.title-card .banner-box { height: 120px !important; }
+          }
+          @media (max-width: 360px) {
+            .sponsor-card-v2.title-card {
+              width: 280px !important;
+              height: 310px !important;
+            }
+            .sponsor-card-v2.title-card .logo-box { height: 200px !important; }
+            .sponsor-card-v2.title-card .banner-box { height: 110px !important; }
+          }
         `}
       </style>
 
@@ -881,19 +911,80 @@ const Sponsors = ({
         </h2>
 
         <div className="card-responsive">
+          <div className="title-row w-full px-4 mb-4 flex justify-center reveal-container reveal-early">
+            {sponsorsData.title.map((item, index) => {
+              const tier = 'title';
+              const accentColor = '#E5E4E2'; // Platinum/White for Title
+              const tierLabel = 'Title Sponsor';
+              const accentColorRgb = '255, 0, 0'; // Red base RGB for Github
+              
+              const cardContent = (
+                <div className="sponsor-card-v2 title-card" style={{ '--tier-accent': accentColor, '--tier-accent-rgb': accentColorRgb }}>
+                  <div className="logo-box">
+                    <div className="relative w-full h-full flex items-center justify-center">
+                      {item.image ? (
+                        <Image
+                          src={item.image}
+                          alt={item.alt || item.title}
+                          fill
+                          className="object-contain p-6"
+                        />
+                      ) : (
+                        <h3 className="font-bold text-3xl text-white">{item.title}</h3>
+                      )}
+                    </div>
+                  </div>
+                  <div className="banner-box">
+                    <div className="ribbon-tag"></div>
+                    <div className="ribbon-tag secondary"></div>
+                    <h3 className="sponsor-name">{item.title}</h3>
+                    <p className="sponsor-tier">{tierLabel}</p>
+                  </div>
+                </div>
+              );
+
+              if (enableStars) {
+                return (
+                  <ParticleCard
+                    key={`${tier}-${index}`}
+                    className="reveal-item"
+                    disableAnimations={shouldDisableAnimations}
+                    particleCount={particleCount}
+                    glowColor={accentColorRgb}
+                    enableTilt={!isMobile && enableTilt}
+                    clickEffect={clickEffect}
+                    enableMagnetism={enableMagnetism}
+                    overflowHidden={false}
+                    href={item.link}
+                  >
+                    {cardContent}
+                  </ParticleCard>
+                );
+              }
+
+              return (
+                <div key={`${tier}-${index}`} className="reveal-item">
+                  {item.link ? (
+                    <a href={item.link} target="_blank" rel="noopener noreferrer">
+                      {cardContent}
+                    </a>
+                  ) : cardContent}
+                </div>
+              );
+            })}
+          </div>
+
           <div className="tier-row w-full px-4 mb-24 reveal-container reveal-early">
-            {['title', 'platinum', 'community', 'referral', 'ecosystem', 'kind'].flatMap((tier) =>
-              sponsorsData[tier].map((item, index) => {
-                const isTitle = tier === 'title';
-                const accentColor = (isTitle || tier === 'platinum') ? '#E5E4E2' : '#FFD700'; // Platinum/White for Title & Platinum, Gold for others
+            {sponsorsData.others.map((item, index) => {
+                const tier = item.tier;
+                const accentColor = tier === 'platinum' ? '#E5E4E2' : '#FFD700'; // Platinum/White for Platinum, Gold for others
                 
-                const tierLabel = tier === 'title' ? 'Title Sponsor' :
-                                 tier === 'platinum' ? 'Platinum Sponsor' : 
+                const tierLabel = tier === 'platinum' ? 'Platinum Sponsor' : 
                                  tier === 'referral' ? 'Referral Partner' :
                                  tier === 'community' ? 'Community Partner' :
                                  tier === 'ecosystem' ? 'Ecosystem Partner' : 'In-kind Sponsor';
 
-                const accentColorRgb = isTitle ? '255, 0, 0' : (tier === 'platinum' ? '229, 228, 226' : '255, 215, 0'); // RGB for Title, Platinum, and Gold
+                const accentColorRgb = tier === 'platinum' ? '229, 228, 226' : '255, 215, 0'; // RGB for Platinum and Gold
                 
                 const cardContent = (
                   <div className="sponsor-card-v2" style={{ '--tier-accent': accentColor, '--tier-accent-rgb': accentColorRgb }}>
@@ -956,8 +1047,7 @@ const Sponsors = ({
                     ) : cardContent}
                   </div>
                 );
-              })
-            )}
+            })}
           </div>
         </div>
       </BentoCardGrid>

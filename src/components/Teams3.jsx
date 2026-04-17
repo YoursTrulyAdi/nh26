@@ -369,7 +369,7 @@ const MemberCard = ({ member, onHoverStart, onHoverEnd }) => {
           className="object-cover"
         />
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-linear-to-b from-black/30 via-black/50 to-black/90"></div>
+        <div className="absolute inset-0 bg-linear-to-b from-black/10 via-black/20 to-black/70"></div>
       </div>
 
       {/* Vertical Text - Name and Role on Hover */}
