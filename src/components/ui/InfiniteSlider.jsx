@@ -82,32 +82,32 @@ const SliderRow = ({ direction = 'right', speed = 20, size = '150px', items, row
 const InfiniteSlider = () => {
   // First Slider - Real Images
   const firstSliderItems = [
-    { image: '/assets/Gallery/First/IMG_9260.JPG' },
-    { image: '/assets/Gallery/First/IMG_9262.JPG' },
-    { image: '/assets/Gallery/First/IMG_9265.JPG' },
-    { image: '/assets/Gallery/First/IMG_9268.JPG' },
-    { image: '/assets/Gallery/First/IMG_9271.JPG' },
-    { image: '/assets/Gallery/First/IMG_9277.JPG' },
-    { image: '/assets/Gallery/First/IMG_9283.JPG' },
-    { image: '/assets/Gallery/First/IMG_9290.JPG' },
+    { image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/Gallery/First/IMG_9260.JPG' },
+    { image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/Gallery/First/IMG_9262.JPG' },
+    { image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/Gallery/First/IMG_9265.JPG' },
+    { image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/Gallery/First/IMG_9268.JPG' },
+    { image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/Gallery/First/IMG_9271.JPG' },
+    { image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/Gallery/First/IMG_9277.JPG' },
+    { image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/Gallery/First/IMG_9283.JPG' },
+    { image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/Gallery/First/IMG_9290.JPG' },
   ];
 
   const secondSliderItems = [
-    { image: '/assets/Gallery/Second/IMG20250517220407.jpg' },
-    { image: '/assets/Gallery/Second/IMG_8939.JPG' },
-    { image: '/assets/Gallery/Second/IMG_8942.JPG' },
-    { image: '/assets/Gallery/Second/IMG_9000.JPG' },
-    { image: '/assets/Gallery/Second/IMG_9001.JPG' },
-    { image: '/assets/Gallery/Second/IMG_9008.JPG' },
+    { image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/Gallery/Second/IMG20250517220407.jpg' },
+    { image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/Gallery/Second/IMG_8939.JPG' },
+    { image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/Gallery/Second/IMG_8942.JPG' },
+    { image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/Gallery/Second/IMG_9000.JPG' },
+    { image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/Gallery/Second/IMG_9001.JPG' },
+    { image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/Gallery/Second/IMG_9008.JPG' },
   ];
 
   const thirdSliderItems = [
-    { image: '/assets/Gallery/Third/1000060858.jpg' },
-    { image: '/assets/Gallery/Third/1000060987.jpg' },
-    { image: '/assets/Gallery/Third/20250517_004513.jpg' },
-    { image: '/assets/Gallery/Third/IMG_8646.JPG' },
-    { image: '/assets/Gallery/Third/IMG_8799.JPG' },
-    { image: '/assets/Gallery/Third/IMG_8839.JPG' },
+    { image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/Gallery/Third/1000060858.jpg' },
+    { image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/Gallery/Third/1000060987.jpg' },
+    { image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/Gallery/Third/20250517_004513.jpg' },
+    { image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/Gallery/Third/IMG_8646.JPG' },
+    { image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/Gallery/Third/IMG_8799.JPG' },
+    { image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/Gallery/Third/IMG_8839.JPG' },
   ];
 
   const dummyItems = Array.from({ length: 6 }, (_, i) => ({

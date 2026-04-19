@@ -5,6 +5,9 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'motion/react';
 import Starfield from './ui/Starfield';
 
+const CDN_BASE =
+  "https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/TeamPics";
+
 // Social Icons
 const Icons = {
   LinkedIn: () => (
@@ -31,14 +34,14 @@ const TEAMS_DATA = [
       {
         name: 'Abhay Surya',
         role: 'Tech Co-Lead',
-        image: '/assets/TeamPics/Abhay.png',
+        image: `${CDN_BASE}/Abhay.png`,
         imageClassName: 'scale-[1.35] object-[center_-55%]',
         socials: {}
       },
       {
         name: 'Gurucharan M',
         role: 'Tech Co-Lead',
-        image: '/assets/TeamPics/Gurucharan.png',
+        image: `${CDN_BASE}/Gurucharan.png`,
         imageClassName: 'scale-[1.6] object-[center_-60%]',
         socials: {
           instagram: 'https://www.instagram.com/guru.ch05/',
@@ -49,7 +52,7 @@ const TEAMS_DATA = [
       {
         name: 'Alex Catchick',
         role: 'Tech Mentor',
-        image: '/assets/TeamPics/Alex.png',
+        image: `${CDN_BASE}/Alex.png`,
         imageClassName: 'scale-[1.5] object-[center_-60%]',
         socials: {
           linkedin: 'https://www.linkedin.com/in/alex-catchick/',
@@ -60,7 +63,7 @@ const TEAMS_DATA = [
       {
         name: 'Yashas C Raju',
         role: 'Tech Mentor',
-        image: '/assets/TeamPics/Yashas.png', 
+        image: `${CDN_BASE}/Yashas.png`, 
         imageClassName: 'scale-[1.4] object-[center_50%]',
         socials: {}
       }
@@ -72,7 +75,7 @@ const TEAMS_DATA = [
       {
         name: 'Pavan Teja',
         role: 'Operations Co-Lead',
-        image: '/assets/TeamPics/Pavan.png',
+        image: `${CDN_BASE}/Pavan.png`,
         imageClassName: 'scale-[1.5] object-[center_-60%]',
         socials: {
           linkedin: 'https://www.linkedin.com/in/itspavant',
@@ -82,7 +85,7 @@ const TEAMS_DATA = [
       {
         name: 'Roma Narayan',
         role: 'Operations Co-Lead',
-        image: '/assets/TeamPics/Roma.png',
+        image: `${CDN_BASE}/Roma.png`,
         imageClassName: 'scale-[1.5] object-[center_-60%] ',
         socials: {
           linkedin: 'https://www.linkedin.com/in/roma-n12',
@@ -93,14 +96,14 @@ const TEAMS_DATA = [
       {
         name: 'Bhavy Shukla',
         role: 'Operations Core',
-        image: '/assets/TeamPics/Bhavy.png',
+        image: `${CDN_BASE}/Bhavy.png`,
         imageClassName: 'scale-[1.5] object-[center_-60%]',
         socials: {}
       },
       {
         name: 'Rishabh Jeppu',
         role: 'Operations Mentor',
-        image: '/assets/TeamPics/Rishabh.png',
+        image: `${CDN_BASE}/Rishabh.png`,
         imageClassName: 'scale-[1.4] object-[center_-60%]',
         socials: {
           linkedin: 'https://www.linkedin.com/in/rishabh-jeppu/'
@@ -109,7 +112,7 @@ const TEAMS_DATA = [
       {
         name: 'Kavya Y P',
         role: 'Operations Mentor',
-        image: '/assets/TeamPics/Kavya.png',
+        image: `${CDN_BASE}/Kavya.png`,
         imageClassName: 'scale-[1.5] object-[center_-60%]',
         socials: {
           linkedin: 'https://www.linkedin.com/in/kavya-yp/',
@@ -125,7 +128,7 @@ const TEAMS_DATA = [
       {
         name: 'Arindam Kalita',
         role: 'Sponsorship Mentor',
-        image: '/assets/TeamPics/Arindam.png',
+        image: `${CDN_BASE}/Arindam.png`,
         imageClassName: 'scale-[1.5] object-[center_-60%]',
         socials: {
           linkedin: 'https://www.linkedin.com/in/arindam-kalita-4a6514250/'
@@ -134,14 +137,14 @@ const TEAMS_DATA = [
       {
         name: 'Neelanshu Ranjan',
         role: 'Sponsorship Lead',
-        image: '/assets/TeamPics/Neelanshu.png',
+        image: `${CDN_BASE}/Neelanshu.png`,
         imageClassName: 'scale-[1.5] object-[center_-70%]',
         socials: {}
       },
       {
         name: 'Adarsh U A',
         role: 'Sponsorship Mentor',
-        image: '/assets/TeamPics/Adarsh.png',
+        image: `${CDN_BASE}/Adarsh.png`,
         imageClassName: 'scale-[1.5] object-[center_-60%]',
         socials: {
           linkedin: 'https://www.linkedin.com/in/adarsh-u-a-6493222a1/',
@@ -156,7 +159,7 @@ const TEAMS_DATA = [
       {
         name: 'Kopal V',
         role: 'Design Co-Lead',
-        image: '/assets/TeamPics/Kopal.png',
+        image: `${CDN_BASE}/Kopal.png`,
         imageClassName: 'scale-[1.5] object-[center_-65%]',
         socials: {
           instagram: 'https://www.instagram.com/kopalllllllll?igsh=MWM0MWh0NjJhd2dzNg==',
@@ -167,7 +170,7 @@ const TEAMS_DATA = [
       {
         name: 'Rashmika R',
         role: 'Design Co-Lead',
-        image: '/assets/TeamPics/Rashmika.png',
+        image: `${CDN_BASE}/Rashmika.png`,
         imageClassName: 'scale-[1.5] object-[center_-60%]',
         socials: {
           instagram: 'https://www.instagram.com/rashmika__157',
@@ -177,14 +180,14 @@ const TEAMS_DATA = [
       {
         name: 'Kusheen Dhar',
         role: 'Design Core',
-        image: '/assets/TeamPics/Kusheen.png',
+        image: `${CDN_BASE}/Kusheen.png`,
         imageClassName: 'scale-[1.5] object-[center_-60%]',
         socials: {}
       },
       {
         name: 'Priya A Reddy',
         role: 'Design Mentor',
-        image: '/assets/TeamPics/Priya.png',
+        image: `${CDN_BASE}/Priya.png`,
         imageClassName: 'scale-[1.2] object-[center_-25%]',
         socials: {
           instagram: 'https://www.instagram.com/p_reddy04',
@@ -193,7 +196,7 @@ const TEAMS_DATA = [
       {
         name: 'Ayusha Mahi',
         role: 'Design Mentor',
-        image: '/assets/TeamPics/Ayusha.png',
+        image: `${CDN_BASE}/Ayusha.png`,
         imageClassName: 'scale-[1.21] object-[center_-35%]',
         socials: {
           instagram: 'https://www.instagram.com/ayusha_mahi',
@@ -209,7 +212,7 @@ const TEAMS_DATA = [
       {
         name: 'Shreyansh Singh',
         role: 'Social Media Core',
-        image: '/assets/TeamPics/Shreyansh.png',
+        image: `${CDN_BASE}/Shreyansh.png`,
         imageClassName: 'scale-[1.4] object-[center_-60%]',
         socials: {
           instagram: 'https://www.instagram.com/shreyansh_0505/',
@@ -219,21 +222,21 @@ const TEAMS_DATA = [
       {
         name: 'Kolli Sathvi',
         role: 'Social Media Lead',
-        image: '/assets/TeamPics/Sathvi (4).png',
+        image: `${CDN_BASE}/Sathvi.png`,
         imageClassName: 'scale-[1.6] object-[center_-30%]',
         socials: {}
       },
       {
         name: 'Anshika',
         role: 'Social Media Core',
-        image: '/assets/TeamPics/Anshika.png',
+        image: `${CDN_BASE}/Anshika.png`,
         imageClassName: 'scale-[1.5] object-[center_-60%]',
         socials: {}
       },
       {
         name: 'Apeksha T S',
         role: 'Social Media Mentor',
-        image: '/assets/TeamPics/Apeksha.png',
+        image: `${CDN_BASE}/Apeksha.png`,
         imageClassName: 'scale-[1.5] object-[center_-60%]',
         socials: {
           linkedin: 'https://www.linkedin.com/in/apekshats',
@@ -243,7 +246,7 @@ const TEAMS_DATA = [
       {
         name: 'Prajwal H',
         role: 'Social Media Mentor',
-        image: '/assets/TeamPics/Prajwal2.png',
+        image: `${CDN_BASE}/Prajwal.png`,
         imageClassName: 'scale-[0.99 object-[center_-2%]',
         socials: {
           linkedin: 'https://www.linkedin.com/in/prajwalhundekar-519813262/',
@@ -259,7 +262,7 @@ const TEAMS_DATA = [
       {
         name: 'Inaya Firdous',
         role: 'Content Lead',
-        image: '/assets/TeamPics/Inaya.png',
+        image: `${CDN_BASE}/Inaya.png`,
         imageClassName: 'scale-[1.5] object-[center_-60%]',
         socials: {
           instagram: 'https://www.instagram.com/inayafir',
@@ -269,7 +272,7 @@ const TEAMS_DATA = [
       {
         name: 'Kanishka Khaitan',
         role: 'Content Core',
-        image: '/assets/TeamPics/Kanishka (1).png',
+        image: `${CDN_BASE}/Kanishka.png`,
         imageClassName: 'scale-[1.5] object-[center_-30%]',
         socials: {
           instagram: 'https://www.instagram.com/__kanishka__khaitan?igsh=Y25tMzF0ZjdqM21r&utm_source=qr',
@@ -279,7 +282,7 @@ const TEAMS_DATA = [
       {
         name: 'Srujana R Bharadwaj',
         role: 'Content Mentor',
-        image: '/assets/TeamPics/Srujana.png',
+        image: `${CDN_BASE}/Srujana.png`,
         imageClassName: 'scale-[1.5] object-[center_-60%]',
         socials: {
           linkedin: 'https://www.linkedin.com/in/srujana-r-bharadwaj-6999152ab/',
@@ -295,7 +298,7 @@ const TEAMS_DATA = [
       {
         name: 'Prakhyath Kudva',
         role: 'DevFolio Co-Lead',
-        image: '/assets/TeamPics/Prakhyath.png',
+        image: `${CDN_BASE}/Prakhyath.png`,
         imageClassName: 'scale-[1.15] object-[center_-30%]',
         socials: {
           instagram: 'https://www.instagram.com/prakhyath.kudva',
@@ -306,14 +309,14 @@ const TEAMS_DATA = [
       {
         name: 'Anu',
         role: 'DevFolio Co-Lead',
-        image: '/assets/TeamPics/Anu (1).png',
+        image: `${CDN_BASE}/Anu.png`,
         imageClassName: 'scale-[1.5] object-[center_-60%]',
         socials: {}
       },
       {
         name: 'Dhanusha Reddy',
         role: 'DevFolio Mentor',
-        image: '/assets/TeamPics/Dhanusha.png',
+        image: `${CDN_BASE}/Dhanusha.png`,
         imageClassName: 'scale-[1.5] object-[center_-60%]',
         socials: {
           linkedin: 'https://www.linkedin.com/in/dhanusha-modiyam/',

@@ -78,7 +78,7 @@ const Navbar = () => {
         <div className="flex-shrink-0">
           <Link href="/">
             <img
-              src="/assets/navbar logo.png"
+              src="https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/navbar%20logo.png"
               alt="Logo"
               className="h-8 w-auto object-contain"
             />

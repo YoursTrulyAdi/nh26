@@ -20,7 +20,7 @@ export const metadata = {
   title: "NMIT Hacks 2026",
   description: "Created by NMIT Hacks",
   icons: {
-    icon: "/assets/Favicon.png",
+    icon: "https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/Favicon.png",
   },
 };
 

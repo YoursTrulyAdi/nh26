@@ -40,12 +40,12 @@ const ContactUs = () => {
         {/* Right Column: Logos */}
         <div className="flex flex-col items-center gap-8">
           <img
-            src="/assets/nmit-logo.png"
+            src="https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/nmit-logo.png"
             alt="Nitte Meenakshi Institute of Technology"
             className="h-12 md:h-20 object-contain brightness-0 invert"
           />
           <img
-            src="/assets/hacks-vertical.png"
+            src="https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/hacks-vertical.png"
             alt="NMIT Hacks Logo"
             className="h-24 md:h-40 object-contain"
           />

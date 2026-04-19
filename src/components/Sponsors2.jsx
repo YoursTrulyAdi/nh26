@@ -50,7 +50,7 @@ const Sponsors2 = () => {
 
         <a href="https://devfolio.co/" target="_blank" rel="noopener noreferrer">
           <TiltedCard
-            imageSrc="/assets/Devfolio.png"
+            imageSrc="https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/Devfolio.png"
             altText="Devfolio Logo"
             containerHeight="120px"
             containerWidth="240px"

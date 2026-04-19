@@ -158,7 +158,7 @@ const Prizes2 = () => {
 
             <div className="relative z-10 flex flex-col items-center gap-2 md:gap-4">
                 <div className="relative w-[50px] h-[50px] md:w-[60px] md:h-[60px] lg:w-[70px] lg:h-[70px] xl:w-[75px] xl:h-[75px] 2xl:w-[80px] 2xl:h-[80px]">
-                     <Image ref={coinBronze} src="/assets/third.png" alt="3rd" fill className="object-contain drop-shadow-lg" />
+                     <Image ref={coinBronze} src="https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/third.png" alt="3rd" fill className="object-contain drop-shadow-lg" />
                 </div>
                 <div className="text-lg md:text-xl xl:text-2xl font-bold text-[#CD7F32] font-['PPMori']">₹ 10,000</div>
             </div>
@@ -183,7 +183,7 @@ const Prizes2 = () => {
 
             <div className="relative z-10 flex flex-col items-center gap-4 md:gap-6">
                  <div className="relative w-[70px] h-[70px] md:w-[85px] md:h-[85px] lg:w-[95px] lg:h-[95px] xl:w-[105px] xl:h-[105px] 2xl:w-[110px] 2xl:h-[110px]">
-                    <Image ref={coinGold} src="/assets/first.png" alt="1st" fill className="object-contain drop-shadow-2xl" />
+                    <Image ref={coinGold} src="https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/first.png" alt="1st" fill className="object-contain drop-shadow-2xl" />
                  </div>
                 <div className="text-2xl md:text-3xl xl:text-4xl font-bold text-[#FFD700] font-['PPMori']">₹ 25,000</div>
             </div>
@@ -208,7 +208,7 @@ const Prizes2 = () => {
 
             <div className="relative z-10 flex flex-col items-center gap-2 md:gap-4">
                  <div className="relative w-[50px] h-[50px] md:w-[60px] md:h-[60px] lg:w-[70px] lg:h-[70px] xl:w-[75px] xl:h-[75px] 2xl:w-[80px] 2xl:h-[80px]">
-                    <Image ref={coinSilver} src="/assets/second.png" alt="2nd" fill className="object-contain drop-shadow-lg" />
+                    <Image ref={coinSilver} src="https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/second.png" alt="2nd" fill className="object-contain drop-shadow-lg" />
                  </div>
                 <div className="text-lg md:text-xl xl:text-2xl font-bold text-[#C0C0C0] font-['PPMori']">₹ 15,000</div>
             </div>

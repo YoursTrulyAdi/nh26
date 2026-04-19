@@ -12,7 +12,7 @@ const tracksData = [
         icon: Gamepad2,
         color: "#e84b8a",
         accentColor: "from-pink-600/25 to-pink-600/10",
-        image: '/assets/TrackPics/track-1.jpg',
+        image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/TrackPics/track-1.jpg',
     },
     {
         title: "IOT",
@@ -20,7 +20,7 @@ const tracksData = [
         icon: Cpu,
         color: "#0ba5e9",
         accentColor: "from-blue-600/25 to-blue-600/10",
-        image: '/assets/TrackPics/track-2.jpg',
+        image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/TrackPics/track-2.jpg',
     },
     {
         title: "AI & ML",
@@ -28,7 +28,7 @@ const tracksData = [
         icon: BrainCircuit,
         color: "#16a34a",
         accentColor: "from-green-600/25 to-green-600/10",
-        image: '/assets/TrackPics/track-3.jpg',
+        image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/TrackPics/track-3.jpg',
     },
     {
         title: "Blockchain / Cybersecurity",
@@ -36,7 +36,7 @@ const tracksData = [
         icon: ShieldCheck,
         color: "#ca8a04",
         accentColor: "from-amber-600/25 to-amber-600/10",
-        image: '/assets/TrackPics/track-4.jpg',
+        image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/TrackPics/track-4.jpg',
     },
     {
         title: "Open Innovation",
@@ -44,7 +44,7 @@ const tracksData = [
         icon: Lightbulb,
         color: "#dc2626",
         accentColor: "from-red-600/25 to-red-600/10",
-        image: '/assets/TrackPics/track-5.jpg',
+        image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/TrackPics/track-5.jpg',
     }
 ];
 

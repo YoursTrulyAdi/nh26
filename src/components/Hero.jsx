@@ -89,7 +89,7 @@ const Hero = () => {
             </span>
             <div className="bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-xl border border-white/10 flex items-center shadow-2xl transition-all duration-300 group-hover:bg-white/20 group-hover:border-white/20">
               <img 
-                src="/assets/GitHub.png" 
+                src="https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/GitHub.png" 
                 alt="GitHub" 
                 className="h-5 md:h-7 w-auto object-contain" 
               />

@@ -154,7 +154,7 @@ const Prizes = () => {
             <div ref={coin2} onMouseEnter={handleHover} className="relative z-20 w-24 h-24 flex items-center justify-center rounded-full">
               {/* Coin Image */}
               <div className="relative z-10 w-full h-full">
-                <Image src="/assets/second.png" alt="2nd Place" width={96} height={96} className="object-contain" />
+                <Image src="https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/second.png" alt="2nd Place" width={96} height={96} className="object-contain" />
               </div>
             </div>
           </div>
@@ -172,7 +172,7 @@ const Prizes = () => {
             <div ref={coin1} onMouseEnter={handleHover} className="relative z-20 w-24 h-24 flex items-center justify-center rounded-full">
               {/* Coin Image */}
               <div className="relative z-10 w-full h-full">
-                <Image src="/assets/first.png" alt="1st Place" width={96} height={96} className="object-contain" />
+                <Image src="https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/first.png" alt="1st Place" width={96} height={96} className="object-contain" />
               </div>
             </div>
           </div>
@@ -190,7 +190,7 @@ const Prizes = () => {
             <div ref={coin3} onMouseEnter={handleHover} className="relative z-20 w-24 h-24 flex items-center justify-center rounded-full">
               {/* Coin Image */}
               <div className="relative z-10 w-full h-full">
-                <Image src="/assets/third.png" alt="3rd Place" width={96} height={96} className="object-contain" />
+                <Image src="https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/third.png" alt="3rd Place" width={96} height={96} className="object-contain" />
               </div>
             </div>
           </div>

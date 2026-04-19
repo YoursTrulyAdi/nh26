@@ -8,12 +8,12 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const greatThingsImg = '/assets/greatthings.png'
-const aboutus = '/assets/aboutus.png'
-const welcome = '/assets/welcome.png'
-const contactFormIcon = '/assets/contact-form.png'
-const raiseHandIcon = '/assets/raise-hand.png'
-const socialMediaIcon = '/assets/social-media.png'
+const greatThingsImg = 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/greatthings.png'
+const aboutus = 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/aboutus.png'
+const welcome = 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/welcome.png'
+const contactFormIcon = 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/contact-form.png'
+const raiseHandIcon = 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/raise-hand.png'
+const socialMediaIcon = 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/social-media.png'
 
 // --- 1. FUZZY TEXT COMPONENT ---
 const FuzzyText = ({

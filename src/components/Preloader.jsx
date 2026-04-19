@@ -117,7 +117,7 @@ export default function Preloader() {
               <div className="relative flex items-center justify-center">
                 <div className="absolute inset-0 bg-[#ff0000] blur-[40px] opacity-20 rounded-full animate-pulse scale-150"></div>
                 <Image 
-                  src="/assets/navbar logo.png" 
+                  src="https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/navbar%20logo.png" 
                   alt="Nexora Logo" 
                   width={300} 
                   height={100} 

@@ -13,18 +13,18 @@ const MOBILE_BREAKPOINT = 768;
 
 const sponsorsData = {
   title: [
-    { title: 'GitHub', image: '/assets/GitHub.png', link: 'https://github.com/' }
+    { title: 'GitHub', image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/GitHub.png', link: 'https://github.com/' }
   ],
   others: [
-    { tier: 'platinum', title: 'Yellow Hills AI', image: '/assets/yellowhillsai.png', link: 'https://yellowhills.ai/' },
-    { tier: 'referral', title: 'HulChul', image: '/assets/HulChul cropped 2.png', link: 'https://hulchul.in/', alt: 'Hul-Chul LOGO' },
-    { tier: 'platinum', title: 'HackCulture', image: '/assets/HackCulture.png', link: 'https://hackculture.in/' },
-    { tier: 'community', title: 'Devfolio', image: '/assets/Devfolio.png', link: 'https://devfolio.co/', alt: 'DEVFOLIO LOGO' },
-    { tier: 'community', title: 'Major League Hacking', image: '/assets/mlh-logo-white.png', link: 'https://mlh.io/', alt: 'MLH LOGO' },
-    { tier: 'community', title: 'theDevArmy', image: '/assets/devArmyLogo.png',link: 'https://thedevarmy.com/', alt: 'DEV ARMY LOGO' },
-    { tier: 'ecosystem', title: 'OSCode', image: '/assets/OSCode Logo.png', alt: 'OS Code LOGO' },
-    { tier: 'kind', title: 'n8n', image: '/assets/n8n_pink+white_logo.png', alt: 'n8n LOGO' },
-    { tier: 'kind', title: '.xyz', image: '/assets/xyz-logo-white.png', alt: '.xyz LOGO' }
+    { tier: 'platinum', title: 'Yellow Hills AI', image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/yellowhillsai.png', link: 'https://yellowhills.ai/' },
+    { tier: 'referral', title: 'HulChul', image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/HulChul%20cropped%202.png', link: 'https://hulchul.in/', alt: 'Hul-Chul LOGO' },
+    { tier: 'platinum', title: 'HackCulture', image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/HackCulture.png', link: 'https://hackculture.in/' },
+    { tier: 'community', title: 'Devfolio', image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/Devfolio.png', link: 'https://devfolio.co/', alt: 'DEVFOLIO LOGO' },
+    { tier: 'community', title: 'Major League Hacking', image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/mlh-logo-white.png', link: 'https://mlh.io/', alt: 'MLH LOGO' },
+    { tier: 'community', title: 'theDevArmy', image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/devArmyLogo.png',link: 'https://thedevarmy.com/', alt: 'DEV ARMY LOGO' },
+    { tier: 'ecosystem', title: 'OSCode', image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/OSCode%20Logo.png', alt: 'OS Code LOGO' },
+    { tier: 'kind', title: 'n8n', image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/n8n_pink%2Bwhite_logo.png', alt: 'n8n LOGO' },
+    { tier: 'kind', title: '.xyz', image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/xyz-logo-white.png', alt: '.xyz LOGO' }
   ]
 };
 
@@ -993,7 +993,7 @@ const Sponsors = ({
                         {item.image ? (
                            item.title === "Devfolio" ? (
                             <img
-                              src="/assets/Devfolio.png"
+                              src="https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/Devfolio.png"
                               alt="DEVFOLIO LOGO"
                               className="object-contain max-h-[100px]"
                             />
