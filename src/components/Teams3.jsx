@@ -180,7 +180,7 @@ const TEAMS_DATA = [
       {
         name: 'Kusheen Dhar',
         role: 'Design Core',
-        image: `${CDN_BASE}/Kusheen.png`,
+        image: `/assets/TeamPics/Kusheen.png`,
         imageClassName: 'scale-[1.5] object-[center_-60%]',
         socials: {}
       },
@@ -298,7 +298,7 @@ const TEAMS_DATA = [
       {
         name: 'Prakhyath Kudva',
         role: 'DevFolio Co-Lead',
-        image: `${CDN_BASE}/Prakhyath.png`,
+        image: `/assets/TeamPics/Prakhyath.png`,
         imageClassName: 'scale-[1.15] object-[center_-30%]',
         socials: {
           instagram: 'https://www.instagram.com/prakhyath.kudva',
