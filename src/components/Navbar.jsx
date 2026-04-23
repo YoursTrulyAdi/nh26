@@ -8,6 +8,7 @@ const navItems = [
   { name: 'About',    href: '#about'    },
   { name: 'Tracks',   href: '#tracks'   },
   { name: 'Prizes',   href: '#prizes'   },
+  { name: 'Timeline', href: '#timeline' },
   { name: 'Sponsors', href: '#sponsors' },
   { name: 'Teams',    href: '#teams'    },
   { name: 'FAQs',     href: '#faqs'     },
@@ -113,7 +114,7 @@ export default function Navbar() {
       `}</style>
 
       {/* ─── Outer sticky wrapper ─────────────────────────────── */}
-      <div className="sticky top-3 z-50 flex flex-col items-center px-3 md:px-4 gap-3 pointer-events-none">
+      <div className="sticky top-3 z-[100] flex flex-col items-center px-3 md:px-4 gap-3 pointer-events-none">
 
         {/* ══ PILL BAR ════════════════════════════════════════ */}
         <div

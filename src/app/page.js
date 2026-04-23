@@ -16,6 +16,7 @@ import Tracks3 from '../components/Tracks3';
 import Brochure from '@/components/Brochure';
 import Teams3 from '@/components/Teams3';
 import Tracks4 from '@/components/Tracks4';
+import HackTimeline from '@/components/HackTimeline';
 
 // --- ADD THIS DATA OBJECT ---
 const data = {
@@ -70,6 +71,8 @@ const Home = () => {
       <section id="brochure">
         <Brochure />
       </section>
+
+      <HackTimeline />
 
       {/* <Teams /> */}
       <section id="teams">
