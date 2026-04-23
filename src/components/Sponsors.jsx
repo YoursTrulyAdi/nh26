@@ -18,24 +18,28 @@ const sponsorsData = {
   others: [
     { tier: 'platinum', title: 'Yellow Hills AI', image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/yellowhillsai.png', link: 'https://yellowhills.ai/' },
     { tier: 'referral', title: 'HulChul', image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/HulChul%20cropped%202.png', link: 'https://hulchul.in/', alt: 'Hul-Chul LOGO' },
+    { tier: 'platinum', title: 'Logitech', image: '/assets/Logitech.png', alt: 'Logitech LOGO' },
     { tier: 'platinum', title: 'HackCulture', image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/HackCulture.png', link: 'https://hackculture.in/' },
+    { tier: 'silver',   title: 'Render', image: '/assets/Render.png', link: 'https://render.com/', alt: 'Render LOGO' },
     { tier: 'community', title: 'Devfolio', image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/Devfolio.png', link: 'https://devfolio.co/', alt: 'DEVFOLIO LOGO' },
     { tier: 'community', title: 'Major League Hacking', image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/mlh-logo-white.png', link: 'https://mlh.io/', alt: 'MLH LOGO' },
     { tier: 'community', title: 'theDevArmy', image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/devArmyLogo.png',link: 'https://thedevarmy.com/', alt: 'DEV ARMY LOGO' },
     { tier: 'ecosystem', title: 'OSCode', image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/OSCode%20Logo.png', alt: 'OS Code LOGO' },
     { tier: 'kind', title: 'n8n', image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/n8n_pink%2Bwhite_logo.png', alt: 'n8n LOGO' },
-    { tier: 'kind', title: '.xyz', image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/xyz-logo-white.png', alt: '.xyz LOGO' }
+    { tier: 'kind', title: '.xyz', image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/xyz-logo-white.png', alt: '.xyz LOGO' },
+    { tier: 'certificate', title: 'Give My Certificate', image: '/assets/GMC.png', alt: 'Give My Certificate LOGO' }
   ]
 };
 
 const tierColors = {
   platinum: '229, 228, 226', // #E5E4E2
   gold: '255, 215, 0',       // #FFD700
-  silver: '192, 192, 192',    // #C0C0C0
+  silver: '192, 192, 192',   // #C0C0C0
   community: '255, 0, 0',    // #ff0000 (red)
   referral: '255, 0, 0',
   ecosystem: '255, 0, 0',
-  kind: '255, 0, 0'
+  kind: '255, 0, 0',
+  certificate: '100, 200, 255' // light blue
 };
 
 const tierHexColors = {
@@ -977,14 +981,23 @@ const Sponsors = ({
           <div className="tier-row w-full px-4 mb-24 reveal-container reveal-early">
             {sponsorsData.others.map((item, index) => {
                 const tier = item.tier;
-                const accentColor = tier === 'platinum' ? '#E5E4E2' : '#FFD700'; // Platinum/White for Platinum, Gold for others
-                
-                const tierLabel = tier === 'platinum' ? 'Platinum Sponsor' : 
-                                 tier === 'referral' ? 'Referral Partner' :
-                                 tier === 'community' ? 'Community Partner' :
-                                 tier === 'ecosystem' ? 'Ecosystem Partner' : 'In-kind Sponsor';
+                const accentColor =
+                  tier === 'platinum'    ? '#E5E4E2' :
+                  tier === 'silver'      ? '#C0C0C0' :
+                  tier === 'certificate' ? '#64C8FF' : '#FFD700';
 
-                const accentColorRgb = tier === 'platinum' ? '229, 228, 226' : '255, 215, 0'; // RGB for Platinum and Gold
+                const tierLabel =
+                  tier === 'platinum'    ? 'Platinum Sponsor'    :
+                  tier === 'silver'      ? 'Silver Sponsor'      :
+                  tier === 'referral'    ? 'Referral Partner'    :
+                  tier === 'community'   ? 'Community Partner'   :
+                  tier === 'ecosystem'   ? 'Ecosystem Partner'   :
+                  tier === 'certificate' ? 'Certificate Partner' : 'In-kind Sponsor';
+
+                const accentColorRgb =
+                  tier === 'platinum'    ? '229, 228, 226' :
+                  tier === 'silver'      ? '192, 192, 192' :
+                  tier === 'certificate' ? '100, 200, 255' : '255, 215, 0';
                 
                 const cardContent = (
                   <div className="sponsor-card-v2" style={{ '--tier-accent': accentColor, '--tier-accent-rgb': accentColorRgb }}>
@@ -1049,6 +1062,7 @@ const Sponsors = ({
                 );
             })}
           </div>
+
         </div>
       </BentoCardGrid>
     </section>
