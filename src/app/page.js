@@ -14,6 +14,7 @@ import Teams2 from '@/components/Teams2';
 import Tracks2 from '@/components/Tracks2';
 import Tracks3 from '../components/Tracks3';
 import Brochure from '@/components/Brochure';
+import MLHLeague from '@/components/MLHLeague';
 import Teams3 from '@/components/Teams3';
 import Tracks4 from '@/components/Tracks4';
 
@@ -66,6 +67,16 @@ const Home = () => {
       {/* <section id="sponsors2">
         <Sponsors2 />
       </section> */}
+
+      <section id="mlh-league">
+        <MLHLeague
+          enableStars={true}
+          enableTilt={true}
+          enableMagnetism={true}
+          clickEffect={true}
+          particleCount={12}
+        />
+      </section>
 
       <section id="brochure">
         <Brochure />

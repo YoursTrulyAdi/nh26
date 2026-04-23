@@ -5,13 +5,15 @@ import { CldImage } from 'next-cloudinary';
 import React from 'react';
 import Navbar from './Navbar';
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 
 const Hero = () => {
   const videoRef = useRef(null);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const script = document.createElement("script");
     script.src = "https://apply.devfolio.co/v2/sdk.js";
     script.async = true;
@@ -119,12 +121,14 @@ const Hero = () => {
 
           {/* CTA Button */}
           <div className="pt-4 md:pt-0 xl:pt-0 reveal-item flex flex-col items-center">
-            <div
-              className="apply-button"
-              data-hackathon-slug="nmithacks26"
-              data-button-theme="dark-inverted"
-              style={{ height: "44px", width: "312px" }}
-            ></div>
+            {mounted && (
+              <div
+                className="apply-button"
+                data-hackathon-slug="nmithacks26"
+                data-button-theme="dark-inverted"
+                style={{ height: "44px", width: "312px" }}
+              ></div>
+            )}
           </div>
         </div>
       </div>
