@@ -156,7 +156,7 @@ export default function Navbar() {
             />
 
             {/* Desktop links */}
-            <ul className="hidden md:flex items-center gap-0.5 ml-2">
+            <ul className="hidden md:flex items-center gap-0.5 ml-10">
               {navItems.map((item, idx) => {
                 const isActive = activeSection === item.href;
                 return (

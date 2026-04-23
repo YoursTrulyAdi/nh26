@@ -24,6 +24,13 @@ const sponsorsData = {
     { tier: 'community', title: 'Devfolio', image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/Devfolio.png', link: 'https://devfolio.co/', alt: 'DEVFOLIO LOGO' },
     { tier: 'community', title: 'Major League Hacking', image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/mlh-logo-white.png', link: 'https://mlh.io/', alt: 'MLH LOGO' },
     { tier: 'community', title: 'theDevArmy', image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/devArmyLogo.png',link: 'https://thedevarmy.com/', alt: 'DEV ARMY LOGO' },
+    { tier: 'league', title: 'backboard.io',  image: '/assets/MLH-league/backboard.png',      alt: 'Backboard Logo' },
+    { tier: 'league', title: 'ElevenLabs',    image: '/assets/MLH-league/elevenlabs.png',     alt: 'ElevenLabs Logo' },
+    { tier: 'league', title: 'Google Cloud',  image: '/assets/MLH-league/google_cloud.png',   alt: 'Google Cloud Logo' },
+    { tier: 'league', title: 'Snowflake',     image: '/assets/MLH-league/snowflake_logo.png', alt: 'Snowflake Logo' },
+    { tier: 'league', title: 'Solana',        image: '/assets/MLH-league/solana.png',         alt: 'Solana Logo' },
+    { tier: 'league', title: 'Vultr',         image: '/assets/MLH-league/vultr_logo.png',     alt: 'Vultr Logo' },
+    { tier: 'league', title: 'MongoDB',       image: '/assets/MLH-league/mongodb_logo.png',   alt: 'MongoDB Logo' },
     { tier: 'ecosystem', title: 'OSCode', image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/OSCode%20Logo.png', alt: 'OS Code LOGO' },
     { tier: 'kind', title: 'n8n', image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/n8n_pink%2Bwhite_logo.png', alt: 'n8n LOGO' },
     { tier: 'kind', title: '.xyz', image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/xyz-logo-white.png', alt: '.xyz LOGO' },
@@ -39,6 +46,7 @@ const tierColors = {
   referral: '255, 0, 0',
   ecosystem: '255, 0, 0',
   kind: '255, 0, 0',
+  league: '255, 0, 0',
   certificate: '100, 200, 255' // light blue
 };
 
@@ -49,7 +57,8 @@ const tierHexColors = {
   community: '#b5b5b5',
   referral: '#b5b5b5',
   ecosystem: '#b5b5b5',
-  kind: '#b5b5b5'
+  kind: '#b5b5b5',
+  league: '#b5b5b5'
 };
 
 const tierShineColors = {
@@ -59,7 +68,8 @@ const tierShineColors = {
   community: '#f17575ff',
   referral: '#f17575ff',
   ecosystem: '#f17575ff',
-  kind: '#f17575ff'
+  kind: '#f17575ff',
+  league: '#f17575ff'
 };
 
 const createParticleElement = (x, y, color = DEFAULT_GLOW_COLOR) => {
@@ -992,6 +1002,7 @@ const Sponsors = ({
                   tier === 'referral'    ? 'Referral Partner'    :
                   tier === 'community'   ? 'Community Partner'   :
                   tier === 'ecosystem'   ? 'Ecosystem Partner'   :
+                  tier === 'league'      ? 'MLH League Partner'      :
                   tier === 'certificate' ? 'Certificate Partner' : 'In-kind Sponsor';
 
                 const accentColorRgb =
@@ -1001,8 +1012,13 @@ const Sponsors = ({
                 
                 const cardContent = (
                   <div className="sponsor-card-v2" style={{ '--tier-accent': accentColor, '--tier-accent-rgb': accentColorRgb }}>
-                    <div className="logo-box">
-                      <div className="relative w-full h-full flex items-center justify-center">
+                    <div className="logo-box" style={tier === 'league' ? {
+                      borderTop:    '2px solid #EF233C',
+                      borderLeft:   '2px solid #00B4E6',
+                      borderRight:  '2px solid #00B4E6',
+                      borderBottom: 'none',
+                    } : {}}>
+                      <div className="relative w-full h-full flex items-center justify-center p-4">
                         {item.image ? (
                            item.title === "Devfolio" ? (
                             <img
@@ -1010,12 +1026,34 @@ const Sponsors = ({
                               alt="DEVFOLIO LOGO"
                               className="object-contain max-h-[100px]"
                             />
+                          ) : tier === 'league' ? (
+                            /* White pill background for league partner logos */
+                            <div style={{
+                              position: 'relative',
+                              width: '100%',
+                              height: '100%',
+                              background: 'rgba(255,255,255,0.95)',
+                              borderRadius: '14px',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              padding: '0.75rem 1rem',
+                              boxShadow: '0 2px 12px rgba(0,0,0,0.15)',
+                              overflow: 'hidden',
+                            }}>
+                              <Image
+                                src={item.image}
+                                alt={item.alt || item.title}
+                                fill
+                                className="object-contain p-3"
+                              />
+                            </div>
                           ) : (
                             <Image
                               src={item.image}
                               alt={item.alt || item.title}
                               fill
-                              className="object-contain p-4"
+                              className={`object-contain ${(item.title === 'HackCulture' || item.title === 'Render') ? 'p-1' : 'p-4'}`}
                             />
                           )
                         ) : (
@@ -1023,7 +1061,12 @@ const Sponsors = ({
                         )}
                       </div>
                     </div>
-                    <div className="banner-box">
+                    <div className="banner-box" style={tier === 'league' ? {
+                      borderTop:    '2px solid #FFD700',
+                      borderLeft:   '2px solid #FFD700',
+                      borderRight:  '2px solid #FFD700',
+                      borderBottom: '2px solid #FFD700',
+                    } : {}}>
                       <div className="ribbon-tag"></div>
                       <div className="ribbon-tag secondary"></div>
                       <h3 className="sponsor-name">{item.title}</h3>
