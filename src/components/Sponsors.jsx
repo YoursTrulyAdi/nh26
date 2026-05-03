@@ -33,6 +33,7 @@ const sponsorsData = {
     { tier: 'league', title: 'MongoDB',       image: '/assets/MLH-league/mongodb_logo.png',   alt: 'MongoDB Logo' },
     { tier: 'ecosystem', title: 'OSCode', image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/OSCode%20Logo.png', alt: 'OS Code LOGO' },
     { tier: 'kind', title: 'n8n', image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/n8n_pink%2Bwhite_logo.png', alt: 'n8n LOGO' },
+    { tier: 'kind', title: 'Featherless', image: '/assets/featherless_logo_final.png', alt: 'Featherless LOGO', link: 'https://featherless.ai/' },
     { tier: 'kind', title: '.xyz', image: 'https://cdn.jsdelivr.net/gh/nmithacks2024/nh26@main/public/assets/xyz-logo-white.png', alt: '.xyz LOGO' },
     { tier: 'certificate', title: 'Give My Certificate', image: '/assets/GMC.png', alt: 'Give My Certificate LOGO' }
   ]
@@ -1053,7 +1054,8 @@ const Sponsors = ({
                               src={item.image}
                               alt={item.alt || item.title}
                               fill
-                              className={`object-contain ${(item.title === 'HackCulture' || item.title === 'Render') ? 'p-1' : 'p-4'}`}
+                              className={`object-contain ${(item.title === 'HackCulture' || item.title === 'Render') ? 'p-1' : item.title === 'Featherless' ? 'p-0' : 'p-4'}`}
+                              style={item.title === 'Featherless' ? { transform: 'scale(1.2)' } : {}}
                             />
                           )
                         ) : (
